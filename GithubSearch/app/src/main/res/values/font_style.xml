@@ -6,4 +6,34 @@
         <item name="android:textSize">20sp</item>
         <item name="android:includeFontPadding">false</item>
     </style>
+
+    <style name="search_semibold_20">
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="search_regular_12">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="search_medium_16">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="detail_bold_24">
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="detail_bold_20">
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
 </resources>
