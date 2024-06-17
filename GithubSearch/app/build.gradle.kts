@@ -82,4 +82,6 @@ dependencies {
 
     // Circle ImageView
     implementation(libs.circleimageview)
+
+    implementation(libs.shimmer)
 }
