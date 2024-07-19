@@ -1,7 +1,8 @@
 package com.example.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -24,5 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         val snap = PagerSnapHelper()
         snap.attachToRecyclerView(binding.calendarCustom)
+
+        // bgm 재생
+        startService(Intent(this, MyService::class.java))
     }
 }

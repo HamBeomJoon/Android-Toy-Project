@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
@@ -9,7 +11,7 @@ import java.util.Calendar
 import java.util.Date
 
 class AdapterMonth : RecyclerView.Adapter<AdapterMonth.MonthView>() {
-    val center = Int.MAX_VALUE / 2
+    private val center = Int.MAX_VALUE / 2
     private var calendar = Calendar.getInstance()
 
     inner class MonthView(val binding: ListItemMonthBinding) : RecyclerView.ViewHolder(binding.root)
@@ -20,6 +22,7 @@ class AdapterMonth : RecyclerView.Adapter<AdapterMonth.MonthView>() {
         return MonthView(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MonthView, position: Int) {
         calendar.time = Date()
         calendar.set(Calendar.DAY_OF_MONTH, 1)
@@ -28,7 +31,7 @@ class AdapterMonth : RecyclerView.Adapter<AdapterMonth.MonthView>() {
             "${calendar.get(Calendar.YEAR)}년 ${calendar.get(Calendar.MONTH) + 1}월"
         val tempMonth = calendar.get(Calendar.MONTH)
 
-        var dayList: MutableList<Date> = MutableList(6 * 7) { Date() }
+        val dayList: MutableList<Date> = MutableList(6 * 7) { Date() }
         calendar.add(Calendar.DAY_OF_MONTH, 1 - calendar.get(Calendar.DAY_OF_WEEK))
         for (i in 0..5) {
             for (k in 0..6) {
@@ -43,6 +46,20 @@ class AdapterMonth : RecyclerView.Adapter<AdapterMonth.MonthView>() {
         holder.binding.itemMonthDayList.apply {
             layoutManager = dayListManager
             adapter = dayListAdapter
+        }
+
+        // bgm 재생
+        holder.binding.btnPlayMusic.setOnClickListener {
+            val context = holder.binding.root.context
+            val intent = Intent(context, MyService::class.java)
+            context.startService(intent)
+        }
+
+        // bgm 정지
+        holder.binding.btnStopMusic.setOnClickListener {
+            val context = holder.binding.root.context
+            val intent = Intent(context, MyService::class.java)
+            context.stopService(intent)
         }
     }
 
