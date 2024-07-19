@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import com.example.myapplication.databinding.ListItemMonthBinding
 import java.util.Calendar
 import java.util.Date
 
-class AdapterMonth : RecyclerView.Adapter<AdapterMonth.MonthView>() {
+class AdapterMonth(private val context: Context) : RecyclerView.Adapter<AdapterMonth.MonthView>() {
     private val center = Int.MAX_VALUE / 2
     private var calendar = Calendar.getInstance()
 
@@ -47,20 +48,20 @@ class AdapterMonth : RecyclerView.Adapter<AdapterMonth.MonthView>() {
             layoutManager = dayListManager
             adapter = dayListAdapter
         }
-
-        // bgm 재생
-        holder.binding.btnPlayMusic.setOnClickListener {
-            val context = holder.binding.root.context
-            val intent = Intent(context, MyService::class.java)
-            context.startService(intent)
-        }
-
-        // bgm 정지
-        holder.binding.btnStopMusic.setOnClickListener {
-            val context = holder.binding.root.context
-            val intent = Intent(context, MyService::class.java)
-            context.stopService(intent)
-        }
+//
+//        // bgm 재생
+//        holder.binding.btnPlayMusic.setOnClickListener {
+//            val context = holder.binding.root.context
+//            val intent = Intent(context, MyService::class.java)
+//            context.startService(intent)
+//        }
+//
+//        // bgm 정지
+//        holder.binding.btnStopMusic.setOnClickListener {
+//            val context = holder.binding.root.context
+//            val intent = Intent(context, MyService::class.java)
+//            context.stopService(intent)
+//        }
     }
 
     override fun getItemCount(): Int {

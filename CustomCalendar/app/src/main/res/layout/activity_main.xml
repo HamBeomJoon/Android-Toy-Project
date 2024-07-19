@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <Toolbar
+        android:id="@+id/tb_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#dee2e6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="로고"
+        app:layout_constraintBottom_toBottomOf="@id/tb_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tb_main" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendar_custom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_main" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_today_quest_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="오늘의\n퀘스트"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/calendar_custom"
+        app:layout_constraintTop_toBottomOf="@id/calendar_custom" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_today_quest_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_today_quest_view"
+        app:layout_constraintTop_toTopOf="@id/tv_today_quest_view" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_quest"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="8dp"
+        android:padding="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_today_quest_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
