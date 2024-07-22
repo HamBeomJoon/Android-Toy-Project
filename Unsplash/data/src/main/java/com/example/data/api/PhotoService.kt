@@ -1,9 +1,9 @@
 package com.example.data.api
 
+import com.example.app.data.model.ResponsePhotoDTOItem
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface PhotoService {
@@ -23,10 +23,10 @@ interface PhotoService {
         @Query("count") count: Int = 5,
     ): Response<List<ResponsePhotoDTOItem>>
 
-    @GET("photos/{id}")
-    suspend fun getPhotoDetail(
-        @Header("Accept-Version") version: String,
-        @Header("Authorization") clientId: String,
-        @Path("id") id: String,
-    ): Response<ResponseDetailDTO>
+//    @GET("photos/{id}")
+//    suspend fun getPhotoDetail(
+//        @Header("Accept-Version") version: String,
+//        @Header("Authorization") clientId: String,
+//        @Path("id") id: String,
+//    ): Response<ResponseDetailDTO>
 }

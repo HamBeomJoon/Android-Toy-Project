@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DEPth-Android</string>
+
+    <string name="bookmark">북마크</string>
+    <string name="recent_image">최신 이미지</string>
+
+</resources>
