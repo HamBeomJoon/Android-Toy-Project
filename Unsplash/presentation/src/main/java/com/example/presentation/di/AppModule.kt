@@ -1,14 +1,10 @@
-package com.example.data.module
+package com.example.presentation.di
 
-import android.content.Context
 import com.example.data.api.PhotoService
 import com.example.data.api.RetrofitClient
-import com.example.data.db.PhotoDao
-import com.example.data.db.PhotoDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 

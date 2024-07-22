@@ -43,6 +43,7 @@ android {
 
 dependencies {
 
+    implementation(project(":data"))
     implementation(project(":domain"))
 
     implementation(libs.androidx.core.ktx)
@@ -69,4 +70,10 @@ dependencies {
 
     // Image Load
     implementation(libs.glide)
+
+    val RETROFIT_VER = "2.11.0"
+    implementation("com.squareup.retrofit2:retrofit:$RETROFIT_VER")
+    implementation("com.squareup.retrofit2:converter-gson:$RETROFIT_VER")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }

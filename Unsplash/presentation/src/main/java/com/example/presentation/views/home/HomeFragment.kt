@@ -19,7 +19,8 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-//    private lateinit var bookmarkRvAdapter: BookmarkRvAdapter
+
+    //    private lateinit var bookmarkRvAdapter: BookmarkRvAdapter
     private lateinit var recentRvAdapter: RecentRvAdapter
     private val homeViewModel: HomeViewModel by activityViewModels()
     private var isLoading = false
@@ -55,13 +56,13 @@ class HomeFragment : Fragment() {
 //            })
 //        }
 
-//        recentRvAdapter = RecentRvAdapter().apply {
-//            setItemClickListener(object : OnItemClickListener {
-//                override fun onItemClick(id: String) {
+        recentRvAdapter = RecentRvAdapter().apply {
+            setItemClickListener(object : OnItemClickListener {
+                override fun onItemClick(id: String) {
 //                    showDetail(id)
-//                }
-//            })
-//        }
+                }
+            })
+        }
 
         binding.rvBookmark.layoutManager = LinearLayoutManager(
             requireContext(), LinearLayoutManager.HORIZONTAL, false
@@ -71,6 +72,7 @@ class HomeFragment : Fragment() {
         binding.rvRecentImage.adapter = recentRvAdapter
     }
 
+
 //    private fun showDetail(photoId: String) {
 //        DetailFragment(photoId).show(
 //            parentFragmentManager, "DetailDialog"
@@ -78,45 +80,45 @@ class HomeFragment : Fragment() {
 //    }
 
 
-    private fun setupScrollListener() {
-        binding.rvRecentImage.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
+private fun setupScrollListener() {
+    binding.rvRecentImage.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
 
-                val layoutManager = recyclerView.layoutManager as GridLayoutManager
-                if (!isLoading) {
-                    if (layoutManager.findLastCompletelyVisibleItemPosition() == recentRvAdapter.itemCount - 1
-                    ) {
-                        currentPage++
-                        homeViewModel.getPhotos(currentPage)
-                        isLoading = true
-                    }
-
-                }
-            }
-        })
-    }
-
-    private fun observers() {
-        homeViewModel.photoState.observe(viewLifecycleOwner) {
-            when (it) {
-                is UiState.Failure -> {
-                    Log.d("HomeFragment", "사진 로딩 실패")
-                    isLoading = false
+            val layoutManager = recyclerView.layoutManager as GridLayoutManager
+            if (!isLoading) {
+                if (layoutManager.findLastCompletelyVisibleItemPosition() == recentRvAdapter.itemCount - 1
+                ) {
+                    currentPage++
+                    homeViewModel.getPhotos(currentPage)
+                    isLoading = true
                 }
 
-                is UiState.Loading -> {}
-                is UiState.Success -> {
-                    if (currentPage == 1) {
-                        recentRvAdapter.setData(it.data)  // 초기 로드
-                        setupScrollListener()  // 초기 로드 후 스크롤 리스너 설정
-                    } else {
-                        recentRvAdapter.addData(it.data)
-                    }
-                    isLoading = false
-                }
             }
         }
+    })
+}
+
+private fun observers() {
+    homeViewModel.photoState.observe(viewLifecycleOwner) {
+        when (it) {
+            is UiState.Failure -> {
+                Log.d("HomeFragment", "사진 로딩 실패")
+                isLoading = false
+            }
+
+            is UiState.Loading -> {}
+            is UiState.Success -> {
+                if (currentPage == 1) {
+                    recentRvAdapter.setData(it.data)  // 초기 로드
+                    setupScrollListener()  // 초기 로드 후 스크롤 리스너 설정
+                } else {
+                    recentRvAdapter.addData(it.data)
+                }
+                isLoading = false
+            }
+        }
+    }
 //        homeViewModel.bookmarkState.observe(viewLifecycleOwner) {
 //            when (it) {
 //                is UiState.Failure -> {
@@ -134,21 +136,21 @@ class HomeFragment : Fragment() {
 //                }
 //            }
 //        }
-    }
+}
 
-    private fun addSampleData() {
+//    private fun addSampleData() {
 //        homeViewModel.deleteAllBookmarks()
-        // 샘플 데이터 추가
+// 샘플 데이터 추가
 //        homeViewModel.addBookmark(
 //            PhotoDaoEntity(
 //                "ZjquxEgXheg",
 //                "https://images.unsplash.com/photo-1718489211836-65a20ad6bd8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjAyNzh8MHwxfGFsbHx8fHx8fHx8fDE3MTg5NTEzMTV8&ixlib=rb-4.0.3&q=80&w=200"
 //            )
 //        )
-    }
+//    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+override fun onDestroyView() {
+    super.onDestroyView()
+    _binding = null
+}
 }
