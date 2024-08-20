@@ -23,3 +23,4 @@ rootProject.name = "unsplashapp"
 include(":data")
 include(":domain")
 include(":presentation")
+include(":app")
