@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.core.domain"
+    namespace = "com.example.features.bookmark"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.core.domain"
+        applicationId = "com.example.features.bookmark"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
@@ -37,12 +37,11 @@ android {
 
 dependencies {
 
-    implementation(project(":common"))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

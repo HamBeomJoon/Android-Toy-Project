@@ -5,10 +5,16 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="common">
+        <State />
+      </entry>
       <entry key="core.data">
         <State />
       </entry>
       <entry key="core.domain">
+        <State />
+      </entry>
+      <entry key="features.feature-bookmark">
         <State />
       </entry>
       <entry key="features.main">
