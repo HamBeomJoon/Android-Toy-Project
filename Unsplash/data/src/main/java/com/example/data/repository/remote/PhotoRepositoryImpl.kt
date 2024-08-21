@@ -1,4 +1,4 @@
-package com.example.data.repository
+package com.example.data.repository.remote
 
 import com.example.data.BuildConfig
 import com.example.data.api.PhotoService

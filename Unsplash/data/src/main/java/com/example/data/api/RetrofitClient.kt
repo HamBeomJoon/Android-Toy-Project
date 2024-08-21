@@ -1,7 +1,7 @@
 package com.example.data.api
 
 import com.example.data.BuildConfig
-import com.example.data.utils.PrettyJsonLogger
+import com.example.app.utils.PrettyJsonLogger
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,10 +14,10 @@ object RetrofitClient {
     private val gson = GsonBuilder().setLenient().create()
 
     private val loggingInterceptor = if (BuildConfig.DEBUG) {
-        HttpLoggingInterceptor(PrettyJsonLogger()).setLevel(
+        HttpLoggingInterceptor(com.example.app.utils.PrettyJsonLogger()).setLevel(
             HttpLoggingInterceptor.Level.BODY)
     } else {
-        HttpLoggingInterceptor(PrettyJsonLogger()).setLevel(
+        HttpLoggingInterceptor(com.example.app.utils.PrettyJsonLogger()).setLevel(
             HttpLoggingInterceptor.Level.BODY)
     }
 

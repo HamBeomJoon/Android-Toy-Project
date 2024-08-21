@@ -21,10 +21,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        // 초기 HomeFragment로 설정
         supportFragmentManager.beginTransaction().add(binding.flMain.id, HomeFragment()).commit()
 
-        // BottomNavigationView 아이템 클릭 리스너 설정
         binding.bn.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
@@ -37,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // 프래그먼트 replace
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(binding.flMain.id, fragment).commit()
     }

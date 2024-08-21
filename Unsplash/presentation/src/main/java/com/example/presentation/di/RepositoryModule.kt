@@ -5,23 +5,19 @@ import com.example.domain.PhotoRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
-@InstallIn(ViewModelComponent::class)
+@InstallIn(SingletonComponent::class)
 @Module
 abstract class RepositoryModule {
 
     @Binds
-    @ViewModelScoped
-    abstract fun bindsPhotoRepository(
-        photoRepositoryImpl: PhotoRepositoryImpl
-    ): PhotoRepository
+    @Singleton
+    abstract fun bindsPhotoRepository(photoRepositoryImpl: PhotoRepositoryImpl): PhotoRepository
 //
 //    @Binds
 //    @Singleton
-//    abstract fun bindsBookmarkRepository(
-//        bookmarkRepositoryImpl: BookmarkRepositoryImpl
-//    ): BookmarkRepository
+//    abstract fun bindsBookmarkRepository(bookmarkRepositoryImpl: BookmarkRepositoryImpl): BookmarkRepository
 }
 

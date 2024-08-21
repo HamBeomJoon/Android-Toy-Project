@@ -1,4 +1,4 @@
-package com.example.data.utils
+package com.example.presentation.utils
 
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser

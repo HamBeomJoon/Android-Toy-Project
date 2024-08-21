@@ -25,6 +25,8 @@ android {
             "UNSPLASH_ACCESS_KEY",
             properties.getProperty("UNSPLASH_ACCESS_KEY")
         )
+
+        buildConfigField("String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\"")
     }
 
     buildTypes {
@@ -51,6 +53,7 @@ android {
 dependencies {
 
     implementation(project(":domain"))
+    implementation(project(":presentation"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
