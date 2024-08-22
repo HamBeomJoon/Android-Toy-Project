@@ -1,4 +1,4 @@
-package com.example.sample.features.main
+package com.example.features.random
 
 import org.junit.Test
 

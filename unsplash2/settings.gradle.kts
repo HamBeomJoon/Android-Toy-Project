@@ -22,9 +22,9 @@ dependencyResolutionManagement {
 rootProject.name = "unsplash"
 include(
     ":app",
-    ":features:main",
 )
 include(":core:data")
 include(":core:domain")
 include(":common")
 include(":features:feature-bookmark")
+include(":features:feature-random")

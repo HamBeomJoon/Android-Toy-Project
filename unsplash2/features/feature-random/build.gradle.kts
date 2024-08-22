@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.sample.features.main"
+    namespace = "com.example.features.random"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.sample.features.main"
+        applicationId = "com.example.features.random"
         minSdk = 29
         targetSdk = 34
         versionCode = 1
@@ -33,9 +33,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
@@ -44,6 +41,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
