@@ -5,6 +5,9 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="build-logic">
+        <State />
+      </entry>
       <entry key="common">
         <State />
       </entry>

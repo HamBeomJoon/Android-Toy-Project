@@ -1,4 +1,4 @@
-package com.example.unsplash
+package com.example.unsplash.features.main
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
