@@ -25,7 +25,7 @@ include(
 )
 include(":core:data")
 include(":core:domain")
-include(":common")
 include(":features:feature-bookmark")
 include(":features:feature-random")
 include(":features:main")
+include(":core:navigation")

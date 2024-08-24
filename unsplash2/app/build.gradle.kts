@@ -49,6 +49,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(Google.HILT_ANDROID)
-    implementation(Google.HILT_ANDROID_COMPILER)
+    implementation(libs.hilt.android.compiler)
+    implementation(libs.hilt.android)
 }

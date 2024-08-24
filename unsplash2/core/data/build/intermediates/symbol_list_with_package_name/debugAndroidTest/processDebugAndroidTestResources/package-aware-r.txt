@@ -1,0 +1,3 @@
+com.example.unsplash.core.data.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

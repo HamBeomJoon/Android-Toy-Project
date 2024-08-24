@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "core.data"
+    namespace = "com.example.unsplash.core.data"
     compileSdk = 34
 
     defaultConfig {
@@ -28,7 +28,7 @@ android {
             properties.getProperty("UNSPLASH_ACCESS_KEY")
         )
 
-        buildConfigField("String", "BASE_URL", properties.getProperty("BASE_URL"))
+        buildConfigField("String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\"")
     }
 
     buildTypes {
@@ -81,7 +81,9 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation(libs.converter.gson)
 
-    // circle imageview
-
+    // Hilt
+    implementation(libs.hilt.android.compiler)
+    implementation(libs.hilt.android)
 }
