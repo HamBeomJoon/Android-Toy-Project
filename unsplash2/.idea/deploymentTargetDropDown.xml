@@ -17,6 +17,9 @@
       <entry key="core.domain">
         <State />
       </entry>
+      <entry key="core.model">
+        <State />
+      </entry>
       <entry key="core.navigation">
         <State />
       </entry>
