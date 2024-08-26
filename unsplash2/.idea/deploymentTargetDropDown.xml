@@ -14,6 +14,12 @@
       <entry key="core.data">
         <State />
       </entry>
+      <entry key="core.data-api">
+        <State />
+      </entry>
+      <entry key="core.database">
+        <State />
+      </entry>
       <entry key="core.domain">
         <State />
       </entry>
