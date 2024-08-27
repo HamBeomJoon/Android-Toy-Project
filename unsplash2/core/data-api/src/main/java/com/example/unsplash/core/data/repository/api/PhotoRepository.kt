@@ -1,6 +1,6 @@
 package com.example.unsplash.core.data.repository.api
 
-import com.example.app.domain.model.PhotoDetailEntity
+import com.example.unsplash.core.model.PhotoDetailEntity
 import com.example.app.domain.model.PhotoEntity
 import kotlinx.coroutines.flow.Flow
 

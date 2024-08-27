@@ -18,4 +18,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.bundles.room)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.android.compiler)
 }

@@ -1,4 +1,4 @@
-package com.example.unsplash.core.database
+package com.example.unsplash.core.database.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
