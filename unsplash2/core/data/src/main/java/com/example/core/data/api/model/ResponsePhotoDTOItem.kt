@@ -1,6 +1,12 @@
-package com.example.app.data.model
+package com.example.core.data.api.model
 
 
+import com.example.app.data.model.CurrentUserCollection
+import com.example.app.data.model.Exif
+import com.example.app.data.model.Links
+import com.example.app.data.model.Location
+import com.example.app.data.model.Urls
+import com.example.app.data.model.User
 import com.google.gson.annotations.SerializedName
 
 data class ResponsePhotoDTOItem(

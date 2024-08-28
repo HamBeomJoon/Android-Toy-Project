@@ -1,4 +1,4 @@
-package com.example.app.domain.model
+package com.example.unsplash.core.model
 
 data class PhotoEntity(
     val id: String,

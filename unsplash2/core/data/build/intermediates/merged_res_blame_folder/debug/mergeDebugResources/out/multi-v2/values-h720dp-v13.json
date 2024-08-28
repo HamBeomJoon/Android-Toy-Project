@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.unsplash.core.data-mergeDebugResources-36:/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "com.example.unsplash.core.data-mergeDebugResources-37:/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/hambeomjoon/.gradle/caches/transforms-3/764aa4a6129624f50ab4195d721622ad/transformed/appcompat-1.7.0/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "/Users/hambeomjoon/.gradle/caches/transforms-3/e0e948cce3b36bfa549174773815f07d/transformed/appcompat-1.7.0/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

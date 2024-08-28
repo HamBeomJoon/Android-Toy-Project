@@ -1,8 +1,7 @@
 package com.example.core.data.api
 
 import com.example.app.data.model.PhotoDetailDTO.ResponseDetailDTO
-import com.example.app.data.model.ResponsePhotoDTOItem
-import retrofit2.Response
+import com.example.core.data.api.model.ResponsePhotoDTOItem
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path

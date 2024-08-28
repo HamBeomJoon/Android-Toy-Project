@@ -1,7 +1,7 @@
 package com.example.core.data.datasource
 
 import com.example.app.data.model.PhotoDetailDTO.ResponseDetailDTO
-import com.example.app.data.model.ResponsePhotoDTOItem
+import com.example.core.data.api.model.ResponsePhotoDTOItem
 import kotlinx.coroutines.flow.Flow
 
 interface PhotoDataSource {

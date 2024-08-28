@@ -6,6 +6,10 @@ plugins {
 android {
     namespace = "com.example.unsplash.core.data.repository.api"
     compileSdk = 34
+
+    defaultConfig {
+        minSdk = 29
+    }
 }
 
 dependencies {
@@ -19,4 +23,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.android.compiler)
 }

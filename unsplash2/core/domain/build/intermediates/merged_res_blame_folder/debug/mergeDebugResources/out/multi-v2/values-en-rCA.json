@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.core.domain-mergeDebugResources-29:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.example.core.domain-mergeDebugResources-33:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
-                    "source": "/Users/hambeomjoon/.gradle/caches/transforms-3/764aa4a6129624f50ab4195d721622ad/transformed/appcompat-1.7.0/res/values-en-rCA/values-en-rCA.xml",
+                    "source": "/Users/hambeomjoon/.gradle/caches/transforms-3/e0e948cce3b36bfa549174773815f07d/transformed/appcompat-1.7.0/res/values-en-rCA/values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/hambeomjoon/.gradle/caches/transforms-3/595f6fb9918c6858f25bf170010ab87c/transformed/core-1.13.1/res/values-en-rCA/values-en-rCA.xml",
+                    "source": "/Users/hambeomjoon/.gradle/caches/transforms-3/d6887bb14be21feebe3e85cefa1a224e/transformed/core-1.13.1/res/values-en-rCA/values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
