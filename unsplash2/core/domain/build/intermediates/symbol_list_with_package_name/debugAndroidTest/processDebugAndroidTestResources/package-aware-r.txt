@@ -1,3 +1,0 @@
-com.example.core.domain.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

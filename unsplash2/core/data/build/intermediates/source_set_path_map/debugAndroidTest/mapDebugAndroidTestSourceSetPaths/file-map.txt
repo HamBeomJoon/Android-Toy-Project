@@ -1,5 +1,0 @@
-com.example.unsplash.core.data.test.data-core-1.6.1-0 /Users/hambeomjoon/.gradle/caches/transforms-3/400c4273ec73524594a80b37f3a845f1/transformed/core-1.6.1/res
-com.example.unsplash.core.data.test.data-androidTest-1 /Users/hambeomjoon/Documents/GitHub/Android-Toy-Project/unsplash2/core/data/build/generated/res/resValues/androidTest/debug
-com.example.unsplash.core.data.test.data-mergeDebugAndroidTestResources-2 /Users/hambeomjoon/Documents/GitHub/Android-Toy-Project/unsplash2/core/data/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-com.example.unsplash.core.data.test.data-mergeDebugAndroidTestResources-3 /Users/hambeomjoon/Documents/GitHub/Android-Toy-Project/unsplash2/core/data/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-com.example.unsplash.core.data.test.data-debugAndroidTest-4 /Users/hambeomjoon/Documents/GitHub/Android-Toy-Project/unsplash2/core/data/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
