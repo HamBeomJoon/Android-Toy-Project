@@ -25,6 +25,9 @@
         <activity
             android:name=".presentation.view.search.SearchActivity"
             android:exported="false" />
+        <activity
+            android:name=".presentation.view.detail.DetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
