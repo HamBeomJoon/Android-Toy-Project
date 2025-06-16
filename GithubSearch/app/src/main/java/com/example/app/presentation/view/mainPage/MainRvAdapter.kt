@@ -1,4 +1,3 @@
 package com.example.app.presentation.view.mainPage
 
-class MainRvAdapter {
-}
+class MainRvAdapter

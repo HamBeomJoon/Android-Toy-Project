@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val viewModel: MainViewModel by viewModels()
+
     override fun initView() {
         super.initView()
 
@@ -38,7 +39,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 is UiState.Loading -> {}
                 is UiState.Success -> {
                     Log.d("TAG1", "유저 검색 성공")
-
                 }
             }
         }

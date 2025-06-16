@@ -7,6 +7,5 @@ import com.example.app.presentation.view.BaseActivity
 class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_search) {
     override fun initView() {
         super.initView()
-
     }
 }

@@ -15,8 +15,8 @@ class PrettyJsonLogger : HttpLoggingInterceptor.Logger {
     override fun log(message: String) {
         val trimMessage = message.trim()
 
-        if ((trimMessage.startsWith("{") && trimMessage.endsWith("}"))
-            || (trimMessage.startsWith("[") && trimMessage.endsWith("]"))
+        if ((trimMessage.startsWith("{") && trimMessage.endsWith("}")) ||
+            (trimMessage.startsWith("[") && trimMessage.endsWith("]"))
         ) {
             try {
                 val prettyJson = gson.toJson(jsonParser.parse(message))
