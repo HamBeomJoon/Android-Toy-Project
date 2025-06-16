@@ -54,12 +54,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun loadSampleData() {
         lifecycleScope.launch {
             showSampleData(isLoading = true)
-
-            delay(3000)
-
+            delay(1500)
 //            val samples = getSampleList()
 //            (binding.rvMain.adapter as SampleAdapter).replaceAll(samples)
-
             showSampleData(isLoading = false)
         }
     }
@@ -67,8 +64,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun showSampleData(isLoading: Boolean) {
         if (isLoading) {
             binding.sfLoading.startShimmer()
-            binding.sfLoading.visibility = View.VISIBLE
-            binding.rvMain.visibility = View.GONE
         } else {
             binding.sfLoading.stopShimmer()
             binding.sfLoading.visibility = View.GONE

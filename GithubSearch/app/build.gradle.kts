@@ -3,8 +3,9 @@ import java.util.Properties
 
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
+    alias(libs.plugins.serialization)
 }
 
 android {
@@ -61,8 +62,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // retrofit
-    implementation(libs.converter.gson)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
 
     // okHttp
     implementation(libs.okhttp)
