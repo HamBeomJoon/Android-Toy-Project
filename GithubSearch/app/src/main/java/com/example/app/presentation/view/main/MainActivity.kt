@@ -1,6 +1,5 @@
 package com.example.app.presentation.view.main
 
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.app.R
@@ -17,63 +16,38 @@ class MainActivity :
 
     override fun initView() {
         super.initView()
-
-        binding.ibUserSearch.setOnClickListener {
-            navigateToSearch()
-        }
-
         setupBinding()
-        initAdapter()
-        observer()
+        setupRecyclerView()
+        observeUiState()
     }
 
     private fun setupBinding() {
-        binding.lifecycleOwner = this
         binding.vm = viewModel
-    }
-
-    private fun initAdapter() {
-        binding.rvMain.apply {
-            adapter = userAdapter
-            itemAnimator = null
+        binding.ibUserSearch.setOnClickListener {
+            navigateToSearch()
         }
     }
 
-    private fun observer() {
-        viewModel.uiState.observe(this) {
-            when (it) {
-                is UiState.Loading -> {
-                    showSampleData(true)
-                }
+    private fun setupRecyclerView() =
+        with(binding.rvMain) {
+            adapter = userAdapter
+            itemAnimator = null
+        }
 
-                is UiState.Success -> {
-                    showSampleData(false)
-                }
-
-                is UiState.Failure -> {
-                    showToast(it.throwable?.message)
-                }
+    private fun observeUiState() {
+        viewModel.uiState.observe(this) { state ->
+            if (state is UiState.Failure) {
+                showToast(state.throwable?.message.orEmpty())
             }
         }
     }
 
-    private fun navigateToSearch() {
-        val intent = SearchActivity.newIntent(this)
-        startActivity(intent)
-    }
-
-    private fun showSampleData(isLoading: Boolean) {
-        if (isLoading) {
-            binding.sfLoading.startShimmer()
-        } else {
-            binding.sfLoading.stopShimmer()
-            binding.sfLoading.visibility = View.GONE
-            binding.rvMain.visibility = View.VISIBLE
-        }
-    }
-
-    private fun showToast(message: String?) {
+    private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun navigateToSearch() {
+        startActivity(SearchActivity.newIntent(this))
     }
 
     override fun onSelected() {

@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.example.app.domain.model.UserInfo
 import com.example.app.domain.repository.UserRepository
@@ -16,6 +17,8 @@ class MainViewModel(
 ) : ViewModel() {
     private val _uiState = MutableLiveData<UiState<Unit>>(UiState.Loading)
     val uiState: LiveData<UiState<Unit>> get() = _uiState
+
+    val isLoading = uiState.map { it is UiState.Loading }
 
     private val _usersInfo = MutableLiveData<List<UserInfo>>()
     val usersInfo: LiveData<List<UserInfo>> get() = _usersInfo
