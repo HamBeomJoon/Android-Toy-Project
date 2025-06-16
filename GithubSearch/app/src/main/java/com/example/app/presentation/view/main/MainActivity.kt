@@ -1,4 +1,4 @@
-package com.example.app.presentation.view.mainPage
+package com.example.app.presentation.view.main
 
 import android.app.Activity
 import android.content.Intent
@@ -32,11 +32,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun observer() {
         viewModel.loginState.observe(this) {
             when (it) {
+                is UiState.Loading -> {}
+
                 is UiState.Failure -> {
                     Log.d("TAG1", "유저 검색 실패")
                 }
 
-                is UiState.Loading -> {}
                 is UiState.Success -> {
                     Log.d("TAG1", "유저 검색 성공")
                 }

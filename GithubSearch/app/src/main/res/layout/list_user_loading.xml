@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="12dp"
     android:layout_width="180dp"
     android:layout_height="180dp"
     app:cardCornerRadius="8dp">
@@ -21,7 +20,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <View
             android:id="@+id/tv_user_name_loading"
             android:layout_width="72dp"
             android:layout_height="20dp"
@@ -31,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_loading" />
 
-        <TextView
+        <View
             android:layout_width="60dp"
             android:layout_height="20dp"
             android:layout_marginTop="12dp"
