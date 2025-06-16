@@ -1,6 +1,5 @@
 package com.example.app.presentation.view.main
 
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.app.R
 import com.example.app.databinding.ActivityMainBinding
@@ -40,10 +39,6 @@ class MainActivity :
                 showToast(state.throwable?.message.orEmpty())
             }
         }
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun navigateToSearch() {
