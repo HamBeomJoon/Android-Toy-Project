@@ -1,5 +1,6 @@
 package com.example.app.data.dto
 
+import com.example.app.domain.model.UserDetailInfo
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -72,3 +73,10 @@ data class UserResponse(
     @SerialName("user_view_type")
     val userViewType: String,
 )
+
+fun UserResponse.toDomain(): UserDetailInfo =
+    UserDetailInfo(
+        profile = this.avatarUrl,
+        userId = this.login,
+        location = this.location,
+    )
