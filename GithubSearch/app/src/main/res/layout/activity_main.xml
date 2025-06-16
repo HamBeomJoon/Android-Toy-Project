@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.example.app.presentation.view.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,6 +65,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tb_main"
             app:spanCount="2"
+            app:submitList="@{vm.usersInfo}"
             tools:listitem="@layout/item_users" />
 
         <com.facebook.shimmer.ShimmerFrameLayout

@@ -2,20 +2,20 @@ package com.example.app.presentation.view.main
 
 import android.app.Activity
 import android.content.Intent
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.example.app.R
 import com.example.app.databinding.ActivityMainBinding
-import com.example.app.presentation.utils.UiState
 import com.example.app.presentation.view.BaseActivity
-import com.example.app.presentation.view.searchPage.SearchActivity
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import com.example.app.presentation.view.UiState
+import com.example.app.presentation.view.search.SearchActivity
 
-class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
-    private val viewModel: MainViewModel by viewModels()
+class MainActivity :
+    BaseActivity<ActivityMainBinding>(R.layout.activity_main),
+    UserClickListener {
+    private val viewModel: MainViewModel by viewModels { MainViewModelFactory() }
+    private val userAdapter: UserAdapter by lazy { UserAdapter(this) }
 
     override fun initView() {
         super.initView()
@@ -24,22 +24,36 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             moveActivity(SearchActivity())
         }
 
-//        binding.rvMain.adapter = SampleAdapter
+        setupBinding()
+        initAdapter()
+        observer()
+    }
 
-        loadSampleData()
+    private fun setupBinding() {
+        binding.lifecycleOwner = this
+        binding.vm = viewModel
+    }
+
+    private fun initAdapter() {
+        binding.rvMain.apply {
+            adapter = userAdapter
+            itemAnimator = null
+        }
     }
 
     private fun observer() {
-        viewModel.loginState.observe(this) {
+        viewModel.uiState.observe(this) {
             when (it) {
-                is UiState.Loading -> {}
-
-                is UiState.Failure -> {
-                    Log.d("TAG1", "유저 검색 실패")
+                is UiState.Loading -> {
+                    showSampleData(true)
                 }
 
                 is UiState.Success -> {
-                    Log.d("TAG1", "유저 검색 성공")
+                    showSampleData(false)
+                }
+
+                is UiState.Failure -> {
+                    showToast(it.throwable?.message)
                 }
             }
         }
@@ -51,16 +65,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         finish()
     }
 
-    private fun loadSampleData() {
-        lifecycleScope.launch {
-            showSampleData(isLoading = true)
-            delay(1500)
-//            val samples = getSampleList()
-//            (binding.rvMain.adapter as SampleAdapter).replaceAll(samples)
-            showSampleData(isLoading = false)
-        }
-    }
-
     private fun showSampleData(isLoading: Boolean) {
         if (isLoading) {
             binding.sfLoading.startShimmer()
@@ -69,5 +73,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             binding.sfLoading.visibility = View.GONE
             binding.rvMain.visibility = View.VISIBLE
         }
+    }
+
+    private fun showToast(message: String?) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSelected() {
+        TODO("Not yet implemented")
     }
 }

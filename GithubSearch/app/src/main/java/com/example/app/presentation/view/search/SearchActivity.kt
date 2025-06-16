@@ -1,4 +1,4 @@
-package com.example.app.presentation.view.searchPage
+package com.example.app.presentation.view.search
 
 import com.example.app.R
 import com.example.app.databinding.ActivitySearchBinding

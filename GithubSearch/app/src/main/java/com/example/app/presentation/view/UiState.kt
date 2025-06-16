@@ -1,4 +1,4 @@
-package com.example.app.presentation.utils
+package com.example.app.presentation.view
 
 sealed class UiState<out T> {
     data object Loading : UiState<Nothing>()
@@ -8,6 +8,6 @@ sealed class UiState<out T> {
     ) : UiState<T>()
 
     data class Failure(
-        val error: String?,
+        val throwable: Throwable? = null,
     ) : UiState<Nothing>()
 }
