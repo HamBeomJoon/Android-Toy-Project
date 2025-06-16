@@ -1,7 +1,5 @@
 package com.example.app.presentation.view.main
 
-import android.app.Activity
-import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -21,7 +19,7 @@ class MainActivity :
         super.initView()
 
         binding.ibUserSearch.setOnClickListener {
-            moveActivity(SearchActivity())
+            navigateToSearch()
         }
 
         setupBinding()
@@ -59,10 +57,9 @@ class MainActivity :
         }
     }
 
-    private fun moveActivity(activity: Activity) {
-        val intent = Intent(this, activity::class.java)
+    private fun navigateToSearch() {
+        val intent = SearchActivity.newIntent(this)
         startActivity(intent)
-        finish()
     }
 
     private fun showSampleData(isLoading: Boolean) {
