@@ -82,4 +82,7 @@ dependencies {
 
     // shimmer
     implementation(libs.shimmer)
+
+    // glide
+    implementation(libs.glide)
 }
