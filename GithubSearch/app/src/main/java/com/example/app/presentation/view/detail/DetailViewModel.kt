@@ -15,13 +15,17 @@ class DetailViewModel(
     private val _uiState = MutableLiveData<UiState<Unit>>(UiState.Loading)
     val uiState: LiveData<UiState<Unit>> = _uiState
 
-    fun searchUser(username: String) {
+    private val _userDetailInfo = MutableLiveData<UserDetailInfo>()
+    val userDetailInfo: LiveData<UserDetailInfo> = _userDetailInfo
+
+    fun searchUser(userId: String) {
         _uiState.value = UiState.Loading
 
         viewModelScope.launch {
             userRepository
-                .getUser(username)
-                .onSuccess {
+                .getUser(userId)
+                .onSuccess { userInfo ->
+                    _userDetailInfo.value = userInfo
                     _uiState.value = UiState.Success(Unit)
                 }.onFailure {
                     _uiState.value = UiState.Failure(it)

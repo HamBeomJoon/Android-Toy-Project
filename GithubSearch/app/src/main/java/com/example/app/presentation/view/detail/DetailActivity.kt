@@ -16,7 +16,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
     override fun initView() {
         super.initView()
         setupBinding()
-        setupRecyclerView()
+//        setupRecyclerView()
         observeUiState()
 
         val searchQuery = intent.getStringExtra(Extras.EXTRA_QUERY) ?: return
@@ -25,11 +25,13 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
 
     private fun setupBinding() {
         binding.vm = viewModel
-        val intent =
-            MainActivity.newIntent(this).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            }
-        startActivity(intent)
+        binding.ibHome.setOnClickListener {
+            val intent =
+                MainActivity.newIntent(this).apply {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+            startActivity(intent)
+        }
     }
 
 //    private fun setupRecyclerView() =

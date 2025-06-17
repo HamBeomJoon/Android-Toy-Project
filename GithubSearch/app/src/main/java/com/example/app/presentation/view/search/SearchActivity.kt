@@ -24,7 +24,8 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
         val query = binding.etSearchUser.text.toString()
 
         if (viewModel.isValidQuery(query)) {
-            startActivity(DetailActivity.newIntent(this, query))
+            val intent = DetailActivity.newIntent(this, query)
+            startActivity(intent)
             finish()
         } else {
             showToast(getString(R.string.search_toast_empty_query))
