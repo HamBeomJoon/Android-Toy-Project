@@ -2,6 +2,7 @@ package com.example.app.data.repository
 
 import com.example.app.data.datasource.UserDataSource
 import com.example.app.data.dto.toDomain
+import com.example.app.domain.model.RepositoryInfo
 import com.example.app.domain.model.UserDetailInfo
 import com.example.app.domain.model.UserInfo
 import com.example.app.domain.repository.UserRepository
@@ -19,5 +20,11 @@ class UserRepositoryImpl(
         handleResult {
             val response = userDataSource.getUserByUsername(name).getOrThrow()
             response.toDomain()
+        }
+
+    override suspend fun getUserRepository(url: String): Result<List<RepositoryInfo>> =
+        handleResult {
+            val response = userDataSource.fetchUserRepository(url).getOrThrow()
+            response.map { it.toDomain() }
         }
 }

@@ -108,9 +108,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_repos"
-            tools:listitem="@layout/item_repos" />
+            app:submitList="@{vm.userRepos}"
+            tools:listitem="@layout/item_repository" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

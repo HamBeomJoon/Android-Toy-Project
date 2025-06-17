@@ -10,13 +10,16 @@ import com.example.app.presentation.view.BaseActivity
 import com.example.app.presentation.view.UiState
 import com.example.app.presentation.view.main.MainActivity
 
-class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_detail) {
+class DetailActivity :
+    BaseActivity<ActivityDetailBinding>(R.layout.activity_detail),
+    RepoClickListener {
     private val viewModel: DetailViewModel by viewModels { DetailViewModelFactory() }
+    private val repoAdapter: RepoAdapter by lazy { RepoAdapter(this) }
 
     override fun initView() {
         super.initView()
         setupBinding()
-//        setupRecyclerView()
+        setupRecyclerView()
         observeUiState()
 
         val searchQuery = intent.getStringExtra(Extras.EXTRA_QUERY) ?: return
@@ -34,11 +37,11 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
         }
     }
 
-//    private fun setupRecyclerView() =
-//        with(binding.rvMain) {
-//            adapter = userAdapter
-//            itemAnimator = null
-//        }
+    private fun setupRecyclerView() =
+        with(binding.rvRepos) {
+            adapter = repoAdapter
+            itemAnimator = null
+        }
 
     private fun observeUiState() {
         viewModel.uiState.observe(this) { state ->
@@ -46,6 +49,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
                 showToast(state.throwable?.message.orEmpty())
             }
         }
+    }
+
+    override fun onSelected() {
+        TODO("Not yet implemented")
     }
 
     companion object {
