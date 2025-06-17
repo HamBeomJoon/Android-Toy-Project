@@ -1,5 +1,6 @@
 package com.example.app.presentation.view.detail
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,9 @@ class RepoViewHolder(
     }
 
     fun bind(item: RepositoryInfo) {
+        binding.markLanguage.setColorFilter(Color.TRANSPARENT)
         binding.repositoryInfo = item
+        binding.executePendingBindings()
     }
 
     companion object {

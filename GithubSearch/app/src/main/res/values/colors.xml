@@ -3,7 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0E50D2</color>
+    <color name="dart_green">#15A79A</color>
+    <color name="python_blue">#2A5E94</color>
+    <color name="typescript_blue">#2661B9</color>
+    <color name="html_red">#D9351D</color>
+    <color name="jupyter_orange">#CF460C</color>
+    <color name="java_brown">#9F5F14</color>
+    <color name="javascript_yellow">#EDDC49</color>
     <color name="kotlin_purple">#975EFE</color>
+    <color name="css_purple">#521E87</color>
     <color name="purple">#842791</color>
     <color name="dark_purple">#50277C</color>
     <color name="light_gray">#F1F3F5</color>
