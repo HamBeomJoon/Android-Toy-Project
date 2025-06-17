@@ -32,6 +32,7 @@
     </style>
 
     <style name="detail_bold_20">
+        <item name="android:textColor">@color/dark_gray</item>
         <item name="fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:includeFontPadding">false</item>
