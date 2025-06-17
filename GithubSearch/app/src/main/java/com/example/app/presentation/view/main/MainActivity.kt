@@ -1,5 +1,7 @@
 package com.example.app.presentation.view.main
 
+import android.content.Context
+import android.content.Intent
 import androidx.activity.viewModels
 import com.example.app.R
 import com.example.app.databinding.ActivityMainBinding
@@ -47,5 +49,9 @@ class MainActivity :
 
     override fun onSelected() {
         TODO("Not yet implemented")
+    }
+
+    companion object {
+        fun newIntent(context: Context): Intent = Intent(context, MainActivity::class.java)
     }
 }

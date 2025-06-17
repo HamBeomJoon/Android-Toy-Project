@@ -1,6 +1,5 @@
 package com.example.app.presentation.view.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,12 +15,12 @@ class MainViewModel(
     private val userRepository: UserRepository,
 ) : ViewModel() {
     private val _uiState = MutableLiveData<UiState<Unit>>(UiState.Loading)
-    val uiState: LiveData<UiState<Unit>> get() = _uiState
+    val uiState: LiveData<UiState<Unit>> = _uiState
 
     val isLoading = uiState.map { it is UiState.Loading }
 
     private val _usersInfo = MutableLiveData<List<UserInfo>>()
-    val usersInfo: LiveData<List<UserInfo>> get() = _usersInfo
+    val usersInfo: LiveData<List<UserInfo>> = _usersInfo
 
     private val _toastMessage = SingleLiveData<Int>()
     val toastMessage: LiveData<Int> = _toastMessage
@@ -50,7 +49,6 @@ class MainViewModel(
             userRepository
                 .getUsers()
                 .onSuccess { usersInfo ->
-                    Log.d("meeple_log", "$usersInfo")
                     _usersInfo.value = usersInfo
                     _uiState.value = UiState.Success(Unit)
                 }.onFailure {

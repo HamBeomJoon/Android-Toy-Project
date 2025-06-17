@@ -9,7 +9,7 @@ class SearchViewModel(
     private val userRepository: UserRepository,
 ) : ViewModel() {
     private val _searchQuery = MutableLiveData<String>()
-    val searchQuery: LiveData<String> get() = _searchQuery
+    val searchQuery: LiveData<String> = _searchQuery
 
     fun updateQuery(query: String) {
         _searchQuery.value = query
