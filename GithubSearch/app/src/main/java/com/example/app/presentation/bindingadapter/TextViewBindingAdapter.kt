@@ -3,10 +3,10 @@ package com.example.app.presentation.bindingadapter
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 
-@BindingAdapter("repoNameLimited")
-fun setRepoNameLimited(
+@BindingAdapter("formattedDate")
+fun setFormattedDate(
     view: TextView,
-    name: String,
+    date: String?,
 ) {
-    view.text = name.take(26)
+    view.text = date?.substringBefore("T") ?: ""
 }
