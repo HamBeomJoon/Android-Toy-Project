@@ -43,7 +43,7 @@ class DetailViewModel(
 
         viewModelScope.launch {
             userRepository
-                .getUserRepository(url)
+                .fetchUserRepository(url)
                 .onSuccess { repos ->
                     _userRepos.value = repos
                     _uiState.value = UiState.Success(Unit)

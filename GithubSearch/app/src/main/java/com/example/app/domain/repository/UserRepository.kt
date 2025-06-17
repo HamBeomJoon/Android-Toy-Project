@@ -5,9 +5,9 @@ import com.example.app.domain.model.UserDetailInfo
 import com.example.app.domain.model.UserInfo
 
 interface UserRepository {
-    suspend fun getUsers(): Result<List<UserInfo>>
+    suspend fun fetchRandomUsers(): Result<List<UserInfo>>
 
     suspend fun getUser(name: String): Result<UserDetailInfo>
 
-    suspend fun getUserRepository(url: String): Result<List<RepositoryInfo>>
+    suspend fun fetchUserRepository(url: String): Result<List<RepositoryInfo>>
 }

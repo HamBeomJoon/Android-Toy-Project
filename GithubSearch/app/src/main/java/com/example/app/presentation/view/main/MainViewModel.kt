@@ -47,7 +47,7 @@ class MainViewModel(
 
         viewModelScope.launch {
             userRepository
-                .getUsers()
+                .fetchRandomUsers()
                 .onSuccess { usersInfo ->
                     _usersInfo.value = usersInfo
                     _uiState.value = UiState.Success(Unit)

@@ -10,9 +10,10 @@ import com.example.app.domain.repository.UserRepository
 class UserRepositoryImpl(
     private val userDataSource: UserDataSource,
 ) : UserRepository {
-    override suspend fun getUsers(): Result<List<UserInfo>> =
+    override suspend fun fetchRandomUsers(): Result<List<UserInfo>> =
         handleResult {
-            val response = userDataSource.fetchUsers().getOrThrow()
+            val randomId = (1..100_000_000).random()
+            val response = userDataSource.fetchUsers(afterUserId = randomId).getOrThrow()
             response.map { it.toDomain() }
         }
 
@@ -22,7 +23,7 @@ class UserRepositoryImpl(
             response.toDomain()
         }
 
-    override suspend fun getUserRepository(url: String): Result<List<RepositoryInfo>> =
+    override suspend fun fetchUserRepository(url: String): Result<List<RepositoryInfo>> =
         handleResult {
             val response = userDataSource.fetchUserRepository(url).getOrThrow()
             response.map { it.toDomain() }

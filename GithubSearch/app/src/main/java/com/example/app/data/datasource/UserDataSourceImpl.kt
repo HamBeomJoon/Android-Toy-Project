@@ -8,10 +8,10 @@ import com.example.app.data.service.UserService
 class UserDataSourceImpl(
     private val userService: UserService,
 ) : UserDataSource {
-    override suspend fun fetchUsers(): Result<List<UsersResponse>> =
+    override suspend fun fetchUsers(afterUserId: Int): Result<List<UsersResponse>> =
         handleApiCall(
             errorMessage = "유저들 정보 조회 실패",
-            apiCall = { userService.requestUsers() },
+            apiCall = { userService.requestUsers(afterUserId = afterUserId) },
             transform = { response ->
                 response.body() ?: throw IllegalStateException("응답 바디가 null입니다.")
             },
