@@ -32,7 +32,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="12dp"
             android:background="@drawable/rounded_edittext"
-            android:hint="@string/hint_search_user"
+            android:hint="@string/search_hint"
             android:includeFontPadding="false"
             android:inputType="text"
             android:paddingHorizontal="12dp"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:text="@string/text_recent_search"
+            android:text="@string/search_recent_search_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ib_back" />
 
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="@string/text_delete_all"
+            android:text="@string/search_delete_all_text"
             app:layout_constraintBottom_toBottomOf="@id/tv_recent_search"
             app:layout_constraintEnd_toEndOf="parent" />
 

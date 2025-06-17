@@ -27,7 +27,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
             startActivity(DetailActivity.newIntent(this, query))
             finish()
         } else {
-            showToast("검색어를 입력해주세요")
+            showToast(getString(R.string.search_toast_empty_query))
         }
     }
 
