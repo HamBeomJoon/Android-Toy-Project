@@ -25,6 +25,8 @@ android {
         properties.load(FileInputStream(rootProject.file("local.properties")))
         val baseUrl = properties["BASE_URL"]
         buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+        val apiKey = properties["API_KEY"]
+        buildConfigField("String", "API_KEY", "\"$apiKey\"")
     }
 
     buildTypes {

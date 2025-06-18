@@ -13,6 +13,6 @@ object OkHttpClientProvider {
         OkHttpClient
             .Builder()
             .addInterceptor(LoggingInterceptorProvider.provide())
-//            .addInterceptor(AuthorizationInterceptor(basicAuth))
+            .addInterceptor(AuthorizationInterceptor())
             .build()
 }
