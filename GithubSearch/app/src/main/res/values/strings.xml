@@ -13,4 +13,5 @@
 
     <string name="repo_create_text">생성 날짜:</string>
     <string name="repo_update_text">마지막 수정일:</string>
+    <string name="detail_profile_link_description">유저 프로필 링크 이동</string>
 </resources>

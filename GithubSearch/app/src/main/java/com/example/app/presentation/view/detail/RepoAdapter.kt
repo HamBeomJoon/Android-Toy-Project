@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.app.domain.model.RepositoryInfo
 
 class RepoAdapter(
-    private val itemClickListener: RepoClickListener,
+    private val itemClickListener: DetailClickListener,
 ) : ListAdapter<RepositoryInfo, RepoViewHolder>(RepoDiffCallback()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,

@@ -11,7 +11,7 @@
 
         <variable
             name="itemClickListener"
-            type="com.example.app.presentation.view.detail.RepoClickListener" />
+            type="com.example.app.presentation.view.detail.DetailClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

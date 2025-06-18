@@ -79,5 +79,6 @@ fun UserResponse.toDomain(): UserDetailInfo =
         profile = this.avatarUrl,
         userId = this.login,
         location = this.location,
+        profileUrl = this.htmlUrl,
         repoUrl = this.reposUrl,
     )

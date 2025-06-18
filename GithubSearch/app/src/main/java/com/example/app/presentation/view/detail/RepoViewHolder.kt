@@ -9,7 +9,7 @@ import com.example.app.domain.model.RepositoryInfo
 
 class RepoViewHolder(
     private val binding: ItemRepositoryBinding,
-    itemClickListener: RepoClickListener,
+    itemClickListener: DetailClickListener,
 ) : RecyclerView.ViewHolder(binding.root) {
     init {
         binding.itemClickListener = itemClickListener
@@ -24,7 +24,7 @@ class RepoViewHolder(
     companion object {
         fun create(
             parent: ViewGroup,
-            itemClickListener: RepoClickListener,
+            itemClickListener: DetailClickListener,
         ): RepoViewHolder =
             RepoViewHolder(
                 binding =

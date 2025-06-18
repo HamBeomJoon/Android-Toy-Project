@@ -1,8 +1,10 @@
 package com.example.app.presentation.view.detail
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import androidx.activity.viewModels
+import androidx.core.net.toUri
 import com.example.app.R
 import com.example.app.databinding.ActivityDetailBinding
 import com.example.app.presentation.Extras
@@ -12,7 +14,7 @@ import com.example.app.presentation.view.main.MainActivity
 
 class DetailActivity :
     BaseActivity<ActivityDetailBinding>(R.layout.activity_detail),
-    RepoClickListener {
+    DetailClickListener {
     private val viewModel: DetailViewModel by viewModels { DetailViewModelFactory() }
     private val repoAdapter: RepoAdapter by lazy { RepoAdapter(this) }
 
@@ -51,8 +53,13 @@ class DetailActivity :
         }
     }
 
-    override fun onSelected() {
-        TODO("Not yet implemented")
+    override fun onSelected(url: String) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, url.toUri())
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            showToast("브라우저를 열 수 없습니다.")
+        }
     }
 
     companion object {
