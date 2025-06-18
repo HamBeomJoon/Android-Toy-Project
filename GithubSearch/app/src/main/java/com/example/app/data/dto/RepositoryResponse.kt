@@ -99,9 +99,9 @@ data class RepositoryResponse(
     @SerialName("language")
     val language: String? = null,
     @SerialName("languages_url")
-    val languagesUrl: String,
+    val languagesUrl: String? = null,
     @SerialName("license")
-    val license: LicenseResponse? = null,
+    val license: String? = null,
     @SerialName("merges_url")
     val mergesUrl: String,
     @SerialName("milestones_url")
@@ -119,7 +119,9 @@ data class RepositoryResponse(
     @SerialName("open_issues_count")
     val openIssuesCount: Int,
     @SerialName("owner")
-    val owner: Owner,
+    val owner: OwnerX,
+    @SerialName("permissions")
+    val permissions: Permissions,
     @SerialName("private")
     val `private`: Boolean,
     @SerialName("pulls_url")

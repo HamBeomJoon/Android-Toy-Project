@@ -11,9 +11,9 @@ data class UserResponse(
     @SerialName("bio")
     val bio: String? = null,
     @SerialName("blog")
-    val blog: String,
+    val blog: String? = null,
     @SerialName("company")
-    val company: String,
+    val company: String? = null,
     @SerialName("created_at")
     val createdAt: String,
     @SerialName("email")
@@ -39,11 +39,11 @@ data class UserResponse(
     @SerialName("id")
     val id: Int,
     @SerialName("location")
-    val location: String,
+    val location: String? = null,
     @SerialName("login")
     val login: String,
     @SerialName("name")
-    val name: String,
+    val name: String? = null,
     @SerialName("node_id")
     val nodeId: String,
     @SerialName("organizations_url")
@@ -78,6 +78,7 @@ fun UserResponse.toDomain(): UserDetailInfo =
     UserDetailInfo(
         profile = this.avatarUrl,
         userId = this.login,
+        followers = this.followers,
         location = this.location,
         profileUrl = this.htmlUrl,
         repoUrl = this.reposUrl,
