@@ -2,11 +2,11 @@ package com.example.app.presentation.view.main
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.app.domain.model.UserInfo
+import com.example.app.presentation.model.RandomUser
 
 class UserAdapter(
     private val itemClickListener: UserClickListener,
-) : ListAdapter<UserInfo, UserViewHolder>(UserDiffCallback()) {
+) : ListAdapter<RandomUser, UserViewHolder>(UserDiffCallback()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,

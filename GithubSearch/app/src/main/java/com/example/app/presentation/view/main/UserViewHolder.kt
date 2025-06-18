@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app.databinding.ItemUsersBinding
-import com.example.app.domain.model.UserInfo
+import com.example.app.presentation.model.RandomUser
 
 class UserViewHolder(
     private val binding: ItemUsersBinding,
@@ -14,7 +14,7 @@ class UserViewHolder(
         binding.itemClickListener = itemClickListener
     }
 
-    fun bind(userInfo: UserInfo) {
+    fun bind(userInfo: RandomUser) {
         binding.userInfo = userInfo
     }
 

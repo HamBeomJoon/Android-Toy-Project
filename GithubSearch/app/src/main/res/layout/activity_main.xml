@@ -135,7 +135,6 @@
                     android:layout_width="0dp"
                     android:layout_height="180dp"
                     android:layout_columnWeight="1" />
-
             </GridLayout>
 
         </com.facebook.shimmer.ShimmerFrameLayout>

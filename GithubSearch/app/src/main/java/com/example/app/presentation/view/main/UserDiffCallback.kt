@@ -1,16 +1,16 @@
 package com.example.app.presentation.view.main
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.app.domain.model.UserInfo
+import com.example.app.presentation.model.RandomUser
 
-class UserDiffCallback : DiffUtil.ItemCallback<UserInfo>() {
+class UserDiffCallback : DiffUtil.ItemCallback<RandomUser>() {
     override fun areItemsTheSame(
-        oldItem: UserInfo,
-        newItem: UserInfo,
+        oldItem: RandomUser,
+        newItem: RandomUser,
     ): Boolean = oldItem.userId == newItem.userId
 
     override fun areContentsTheSame(
-        oldItem: UserInfo,
-        newItem: UserInfo,
+        oldItem: RandomUser,
+        newItem: RandomUser,
     ): Boolean = oldItem == newItem
 }

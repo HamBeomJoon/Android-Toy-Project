@@ -1,5 +1,6 @@
 package com.example.app.presentation.view.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +9,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.app.domain.model.UserInfo
 import com.example.app.domain.repository.UserRepository
 import com.example.app.presentation.SingleLiveData
+import com.example.app.presentation.model.RandomUser
 import com.example.app.presentation.view.UiState
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 class MainViewModel(
@@ -19,27 +24,14 @@ class MainViewModel(
 
     val isLoading = uiState.map { it is UiState.Loading }
 
-    private val _usersInfo = MutableLiveData<List<UserInfo>>()
-    val usersInfo: LiveData<List<UserInfo>> = _usersInfo
+    private val _usersInfo = MutableLiveData<List<RandomUser>>()
+    val usersInfo: LiveData<List<RandomUser>> = _usersInfo
 
-    private val _toastMessage = SingleLiveData<Int>()
-    val toastMessage: LiveData<Int> = _toastMessage
+    private val _toastMessage = SingleLiveData<String>()
+    val toastMessage: LiveData<String> = _toastMessage
 
     init {
         fetchUsers()
-    }
-
-    fun searchUser(username: String) {
-//        _usersInfo.value = UiState.Loading
-
-        viewModelScope.launch {
-            userRepository.getUser(username)
-//                .onSuccess {
-//                    _searchState.value = UiState.Success(Unit)
-//                }.onFailure {
-//                    _searchState.value = UiState.Failure(it.message)
-//                }
-        }
     }
 
     private fun fetchUsers() {
@@ -49,11 +41,41 @@ class MainViewModel(
             userRepository
                 .fetchRandomUsers()
                 .onSuccess { usersInfo ->
-                    _usersInfo.value = usersInfo
+                    Log.d("meeple_log", "$usersInfo")
+                    val randomUsers = mapToRandomUserList(usersInfo)
+                    _usersInfo.value = randomUsers
                     _uiState.value = UiState.Success(Unit)
                 }.onFailure {
                     _uiState.value = UiState.Failure(it)
                 }
         }
     }
+
+    private suspend fun mapToRandomUserList(usersInfo: List<UserInfo>): List<RandomUser> =
+        coroutineScope {
+            usersInfo
+                .map { userInfo ->
+                    async {
+                        toRandomUser(userInfo)
+                            .onFailure {
+                                _toastMessage.value = "유저 정보를 불러오지 못했습니다: ${userInfo.userId}"
+                            }
+                    }
+                }.awaitAll()
+                .mapNotNull {
+                    Log.d("meeple_log", "$it")
+                    it.getOrNull()
+                }
+        }
+
+    private suspend fun toRandomUser(userInfo: UserInfo): Result<RandomUser> =
+        runCatching {
+            val userDetail = userRepository.getUser(userInfo.userId).getOrThrow()
+            Log.d("meeple_log", "$userDetail")
+            RandomUser(
+                profile = userInfo.profile,
+                userId = userInfo.userId,
+                followers = userDetail.followers,
+            )
+        }
 }
