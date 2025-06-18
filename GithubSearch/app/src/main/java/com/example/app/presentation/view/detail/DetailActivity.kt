@@ -30,6 +30,7 @@ class DetailActivity :
 
     private fun setupBinding() {
         binding.vm = viewModel
+        binding.itemClickListener = this
         binding.ibHome.setOnClickListener {
             val intent =
                 MainActivity.newIntent(this).apply {
