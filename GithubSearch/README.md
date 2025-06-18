@@ -4,10 +4,11 @@
 
  shimmerFrameLayout                                                                                                                           | 메인 페이지                                                                                                               
 ----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------
- <img src="https://github.com/HamBeomJoon/Android-Toy-Project/assets/37996727/b0394b42-184d-408c-be00-42baa1605083" width="260" height="600"> | <img src="https://github.com/user-attachments/assets/56eed15f-a76a-407d-8eba-cebf9b350cbf" width="260" height="600"> 
+ <img src="https://github.com/HamBeomJoon/Android-Toy-Project/assets/37996727/b0394b42-184d-408c-be00-42baa1605083" width="260" height="600"> | <img src="https://github.com/user-attachments/assets/2e63733e-8ad7-4ba2-a49c-28de4dac0915" width="260" height="600"> 
 
 - 20명 랜덤 프로필 가져오기 (since 매개변수로 해당 id 이후 사람들 조회 가능, 1부터 1억 사이 랜덤값 넣어 줌 / pageSize 기본값 20 줌)
 - 프로필 이미지, github Id, 팔로워 수 표시
+- 유저 클릭 시 상세 페이지로 이동
 
 ----
 검색 페이지.

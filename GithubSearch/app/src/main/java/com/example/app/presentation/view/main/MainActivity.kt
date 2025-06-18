@@ -7,6 +7,7 @@ import com.example.app.R
 import com.example.app.databinding.ActivityMainBinding
 import com.example.app.presentation.view.BaseActivity
 import com.example.app.presentation.view.UiState
+import com.example.app.presentation.view.detail.DetailActivity
 import com.example.app.presentation.view.search.SearchActivity
 
 class MainActivity :
@@ -47,8 +48,9 @@ class MainActivity :
         startActivity(SearchActivity.newIntent(this))
     }
 
-    override fun onSelected() {
-        TODO("Not yet implemented")
+    override fun onSelected(userId: String) {
+        val intent = DetailActivity.newIntent(this, userId)
+        startActivity(intent)
     }
 
     companion object {

@@ -101,7 +101,7 @@ data class RepositoryResponse(
     @SerialName("languages_url")
     val languagesUrl: String? = null,
     @SerialName("license")
-    val license: String? = null,
+    val license: LicenseResponse? = null,
     @SerialName("merges_url")
     val mergesUrl: String,
     @SerialName("milestones_url")
