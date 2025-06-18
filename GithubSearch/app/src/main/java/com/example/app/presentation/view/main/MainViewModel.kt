@@ -1,6 +1,5 @@
 package com.example.app.presentation.view.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -41,7 +40,6 @@ class MainViewModel(
             userRepository
                 .fetchRandomUsers()
                 .onSuccess { usersInfo ->
-                    Log.d("meeple_log", "$usersInfo")
                     val randomUsers = mapToRandomUserList(usersInfo)
                     _usersInfo.value = randomUsers
                     _uiState.value = UiState.Success(Unit)
@@ -63,7 +61,6 @@ class MainViewModel(
                     }
                 }.awaitAll()
                 .mapNotNull {
-                    Log.d("meeple_log", "$it")
                     it.getOrNull()
                 }
         }
@@ -71,7 +68,6 @@ class MainViewModel(
     private suspend fun toRandomUser(userInfo: UserInfo): Result<RandomUser> =
         runCatching {
             val userDetail = userRepository.getUser(userInfo.userId).getOrThrow()
-            Log.d("meeple_log", "$userDetail")
             RandomUser(
                 profile = userInfo.profile,
                 userId = userInfo.userId,
