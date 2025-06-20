@@ -20,6 +20,7 @@ retrofit = "3.0.0"
 retrofit2-kotlinx-serialization-converter = "1.0.0"
 ktlint = "12.1.0"
 glide = "4.16.0"
+room-runtime = "2.7.1"
 
 [libraries]
 androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidx-activity-ktx" }
@@ -41,6 +42,8 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2-kotlinx-serialization-converter" }
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-runtime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runtime" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
