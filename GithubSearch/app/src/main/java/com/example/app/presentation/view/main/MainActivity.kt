@@ -24,11 +24,12 @@ class MainActivity :
         observeUiState()
     }
 
+    override fun initListener() {
+        binding.ibUserSearch.setOnClickListener { navigateToSearch() }
+    }
+
     private fun setupBinding() {
         binding.vm = viewModel
-        binding.ibUserSearch.setOnClickListener {
-            navigateToSearch()
-        }
     }
 
     private fun setupRecyclerView() =
