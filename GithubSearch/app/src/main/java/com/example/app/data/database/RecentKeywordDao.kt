@@ -7,15 +7,15 @@ import androidx.room.Query
 
 @Dao
 interface RecentKeywordDao {
-    @Query("SELECT * FROM recent_search ORDER BY searched_at DESC")
+    @Query("SELECT * FROM recent_keywords ORDER BY searched_at DESC")
     suspend fun getAllRecentKeywords(): List<RecentKeywordEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertKeyword(search: RecentKeywordEntity)
 
-    @Query("DELETE FROM recent_search WHERE keyword = :keyword")
+    @Query("DELETE FROM recent_keywords WHERE keyword = :keyword")
     suspend fun deleteByKeyword(keyword: String)
 
-    @Query("DELETE FROM recent_search")
+    @Query("DELETE FROM recent_keywords")
     suspend fun deleteAllKeywords()
 }

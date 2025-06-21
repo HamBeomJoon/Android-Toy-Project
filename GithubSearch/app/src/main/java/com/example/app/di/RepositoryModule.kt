@@ -5,6 +5,6 @@ import com.example.app.domain.repository.UserRepository
 
 object RepositoryModule {
     val userRepository: UserRepository by lazy {
-        UserRepositoryImpl(DatasourceModule.userDataSource)
+        UserRepositoryImpl(DatasourceModule.userRemoteDataSource)
     }
 }
