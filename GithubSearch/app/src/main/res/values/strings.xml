@@ -7,11 +7,12 @@
     <string name="search_delete_all_text">전체 삭제</string>
     <string name="search_hint">유저 검색</string>
     <string name="search_toast_empty_query">검색어를 입력해주세요</string>
+    <string name="search_delete_keyword_description">최근 검색어 삭제</string>
 
     <string name="detail_toolbar">유저 상세 페이지</string>
     <string name="detail_repo_list">레포지토리 목록</string>
+    <string name="detail_profile_link_description">유저 프로필 링크 이동</string>
 
     <string name="repo_create_text">생성 날짜:</string>
     <string name="repo_update_text">마지막 수정일:</string>
-    <string name="detail_profile_link_description">유저 프로필 링크 이동</string>
 </resources>

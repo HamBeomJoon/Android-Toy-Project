@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recentSearches"
+            type="com.example.app.domain.model.RecentSearch" />
+
+        <variable
+            name="itemClickListener"
+            type="com.example.app.presentation.view.main.UserClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/iv_time"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_timestamp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_keyword"
+            style="@style/search_medium_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:gravity="center_vertical"
+            android:text="@{recentSearches.keyword}"
+            app:layout_constraintBottom_toBottomOf="@id/iv_time"
+            app:layout_constraintStart_toEndOf="@id/iv_time"
+            app:layout_constraintTop_toTopOf="@id/iv_time"
+            tools:text="HamBeomJoon" />
+
+        <TextView
+            android:id="@+id/tv_searched_at"
+            style="@style/detail_medium_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/dark_gray"
+            app:formattedDate="@{recentSearches.searchedAt}"
+            app:layout_constraintBottom_toBottomOf="@id/ib_delete_keyword"
+            app:layout_constraintEnd_toStartOf="@id/ib_delete_keyword"
+            app:layout_constraintTop_toTopOf="@id/ib_delete_keyword"
+            tools:text="2025.06.21" />
+
+        <ImageButton
+            android:id="@+id/ib_delete_keyword"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@color/white"
+            android:contentDescription="@string/search_delete_keyword_description"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="@id/tv_keyword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_keyword" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
