@@ -12,5 +12,5 @@ data class RecentKeywordEntity(
     @ColumnInfo(name = "keyword")
     val keyword: String,
     @ColumnInfo(name = "searched_at")
-    val searchedAt: String,
+    val searchedAt: Long = System.currentTimeMillis(),
 )
