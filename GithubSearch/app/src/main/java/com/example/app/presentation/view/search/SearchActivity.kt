@@ -26,6 +26,7 @@ class SearchActivity :
         super.initListener()
         binding.ibBack.setOnClickListener { finish() }
         binding.ibSearch.setOnClickListener { handleSearchClick() }
+        binding.tvDeleteAllKeywords.setOnClickListener { viewModel.deleteAllKeywords() }
     }
 
     private fun setupBinding() {

@@ -15,9 +15,10 @@
 
  검색 페이지                                                                                                               |
 ----------------------------------------------------------------------------------------------------------------------|
- <img src="https://github.com/user-attachments/assets/b901d007-16e3-4e46-b079-d128da4bd82a" width="260" height="600"> |
+ <img src="https://github.com/user-attachments/assets/d55a48e0-1999-43a9-824c-a435fd2e1e66" width="260" height="600"> |
 
-- (최근 검색어 RoomDB 사용해서 추가 예정)
+- 최근 검색어 추가, 삭제, 전체 삭제 기능
+- 삭제 후 snackBar 표시
 
 ----
 상세 페이지.

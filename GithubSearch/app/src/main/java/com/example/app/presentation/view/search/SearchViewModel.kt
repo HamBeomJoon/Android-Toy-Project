@@ -45,6 +45,17 @@ class SearchViewModel(
         }
     }
 
+    fun deleteAllKeywords() {
+        viewModelScope.launch {
+            recentKeywordRepository
+                .clearKeywords()
+                .onSuccess {
+                    _snackBarMessage.value = "최근 검색어 전체를 삭제했습니다"
+                    loadRecentSearches()
+                }.onFailure { _snackBarMessage.value = "최근 검색어 전체 삭제에 실패했습니다" }
+        }
+    }
+
     private fun loadRecentSearches() {
         viewModelScope.launch {
             recentKeywordRepository
