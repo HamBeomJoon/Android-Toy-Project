@@ -41,11 +41,9 @@ class DetailActivity :
         }
     }
 
-    private fun setupRecyclerView() =
-        with(binding.rvRepos) {
-            adapter = repoAdapter
-            itemAnimator = null
-        }
+    private fun setupRecyclerView() {
+        binding.rvRepos.adapter = repoAdapter
+    }
 
     private fun observeUiState() {
         viewModel.uiState.observe(this) { state ->

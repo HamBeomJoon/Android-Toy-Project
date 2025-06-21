@@ -6,12 +6,12 @@ import com.example.app.presentation.model.RandomUser
 import com.example.app.presentation.view.ItemClickListener
 
 class UserAdapter(
-    private val itemClickListener: ItemClickListener,
+    private val clickListener: ItemClickListener,
 ) : ListAdapter<RandomUser, UserViewHolder>(UserDiffCallback()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): UserViewHolder = UserViewHolder.create(parent, itemClickListener)
+    ): UserViewHolder = UserViewHolder.create(parent, clickListener)
 
     override fun onBindViewHolder(
         holder: UserViewHolder,

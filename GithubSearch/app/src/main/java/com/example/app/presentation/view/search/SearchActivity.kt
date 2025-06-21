@@ -13,10 +13,12 @@ class SearchActivity :
     BaseActivity<ActivitySearchBinding>(R.layout.activity_search),
     ItemClickListener {
     private val viewModel: SearchViewModel by viewModels { SearchViewModelFactory() }
+    private val recentSearchAdapter: RecentSearchAdapter by lazy { RecentSearchAdapter(this) }
 
     override fun initView() {
         super.initView()
         setupBinding()
+        setupRecyclerView()
         setObserve()
     }
 
@@ -28,6 +30,10 @@ class SearchActivity :
 
     private fun setupBinding() {
         binding.vm = viewModel
+    }
+
+    private fun setupRecyclerView() {
+        binding.rvRecentSearch.adapter = recentSearchAdapter
     }
 
     private fun handleSearchClick() {

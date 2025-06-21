@@ -32,11 +32,9 @@ class MainActivity :
         binding.vm = viewModel
     }
 
-    private fun setupRecyclerView() =
-        with(binding.rvMain) {
-            adapter = userAdapter
-            itemAnimator = null
-        }
+    private fun setupRecyclerView() {
+        binding.rvMain.adapter = userAdapter
+    }
 
     private fun observeUiState() {
         viewModel.uiState.observe(this) { state ->
