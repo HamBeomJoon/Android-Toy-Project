@@ -1,19 +1,13 @@
 package com.example.app.presentation.view.search
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.app.domain.repository.UserRepository
+import com.example.app.domain.repository.RecentKeywordRepository
 
 class SearchViewModel(
-    private val userRepository: UserRepository,
+    private val recentKeywordRepository: RecentKeywordRepository,
 ) : ViewModel() {
-    private val _searchQuery = MutableLiveData<String>()
-    val searchQuery: LiveData<String> = _searchQuery
+    val searchQuery = MutableLiveData("")
 
-    fun updateQuery(query: String) {
-        _searchQuery.value = query
-    }
-
-    fun isValidQuery(query: String): Boolean = query.isNotBlank()
+    fun isValidQuery(): Boolean = !searchQuery.value.isNullOrBlank()
 }

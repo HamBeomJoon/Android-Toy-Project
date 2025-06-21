@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.example.app.presentation.view.search.SearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,6 +40,7 @@
             android:inputType="text"
             android:paddingHorizontal="12dp"
             android:paddingVertical="8dp"
+            android:text="@={vm.searchQuery}"
             android:textCursorDrawable="@drawable/custom_cursor"
             app:layout_constraintBottom_toBottomOf="@id/ib_back"
             app:layout_constraintEnd_toEndOf="parent"

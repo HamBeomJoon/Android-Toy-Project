@@ -14,16 +14,14 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
     override fun initListener() {
         super.initListener()
         binding.ibBack.setOnClickListener { finish() }
-
         binding.ibSearch.setOnClickListener {
             handleSearchClick()
         }
     }
 
     private fun handleSearchClick() {
-        val query = binding.etSearchUser.text.toString()
-
-        if (viewModel.isValidQuery(query)) {
+        if (viewModel.isValidQuery()) {
+            val query = viewModel.searchQuery.value.orEmpty()
             val intent = DetailActivity.newIntent(this, query)
             startActivity(intent)
             finish()
