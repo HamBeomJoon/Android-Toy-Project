@@ -1,6 +1,5 @@
 package com.example.app.data.dto
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -43,5 +42,5 @@ data class OwnerX(
     @SerialName("url")
     val url: String,
     @SerialName("user_view_type")
-    val userViewType: String
+    val userViewType: String,
 )

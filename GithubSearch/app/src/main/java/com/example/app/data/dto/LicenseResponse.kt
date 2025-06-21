@@ -1,6 +1,5 @@
 package com.example.app.data.dto
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -15,5 +14,5 @@ data class LicenseResponse(
     @SerialName("spdx_id")
     val spdxId: String,
     @SerialName("url")
-    val url: String
+    val url: String? = null,
 )

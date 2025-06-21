@@ -1,6 +1,5 @@
 package com.example.app.data.dto
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -15,5 +14,5 @@ data class Permissions(
     @SerialName("push")
     val push: Boolean,
     @SerialName("triage")
-    val triage: Boolean
+    val triage: Boolean,
 )

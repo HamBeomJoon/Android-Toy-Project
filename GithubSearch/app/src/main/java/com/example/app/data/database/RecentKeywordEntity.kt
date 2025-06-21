@@ -10,9 +10,7 @@ import java.time.ZoneOffset
 
 @Entity(tableName = "recent_keywords")
 data class RecentKeywordEntity(
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "keyword_id")
-    val id: Long = 0L,
+    @PrimaryKey
     @ColumnInfo(name = "keyword")
     val keyword: String,
     @ColumnInfo(name = "searched_at")
