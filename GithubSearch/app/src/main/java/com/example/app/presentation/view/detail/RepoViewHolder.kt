@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app.databinding.ItemRepositoryBinding
 import com.example.app.domain.model.RepositoryInfo
+import com.example.app.presentation.view.ItemClickListener
 
 class RepoViewHolder(
     private val binding: ItemRepositoryBinding,
-    itemClickListener: DetailClickListener,
+    itemClickListener: ItemClickListener,
 ) : RecyclerView.ViewHolder(binding.root) {
     init {
         binding.itemClickListener = itemClickListener
@@ -24,7 +25,7 @@ class RepoViewHolder(
     companion object {
         fun create(
             parent: ViewGroup,
-            itemClickListener: DetailClickListener,
+            itemClickListener: ItemClickListener,
         ): RepoViewHolder =
             RepoViewHolder(
                 binding =

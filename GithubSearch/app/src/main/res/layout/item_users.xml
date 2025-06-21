@@ -11,7 +11,7 @@
 
         <variable
             name="itemClickListener"
-            type="com.example.app.presentation.view.main.UserClickListener" />
+            type="com.example.app.presentation.view.ItemClickListener" />
     </data>
 
     <androidx.cardview.widget.CardView

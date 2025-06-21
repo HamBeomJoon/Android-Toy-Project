@@ -7,7 +7,8 @@ import com.example.app.data.datasource.remote.UserRemoteDataSourceImpl
 
 object DatasourceModule {
     val recentKeywordLocalDataSource: RecentKeywordLocalDataSource by lazy {
-        RecentKeywordLocalDataSourceImpl(DatabaseModule.recentKeywordDao)
+        val dao = DatabaseModule.recentKeywordDao
+        RecentKeywordLocalDataSourceImpl(dao)
     }
 
     val userRemoteDataSource: UserRemoteDataSource by lazy {

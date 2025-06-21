@@ -9,12 +9,13 @@ import com.example.app.R
 import com.example.app.databinding.ActivityDetailBinding
 import com.example.app.presentation.Extras
 import com.example.app.presentation.view.BaseActivity
+import com.example.app.presentation.view.ItemClickListener
 import com.example.app.presentation.view.UiState
 import com.example.app.presentation.view.main.MainActivity
 
 class DetailActivity :
     BaseActivity<ActivityDetailBinding>(R.layout.activity_detail),
-    DetailClickListener {
+    ItemClickListener {
     private val viewModel: DetailViewModel by viewModels { DetailViewModelFactory() }
     private val repoAdapter: RepoAdapter by lazy { RepoAdapter(this) }
 
@@ -54,9 +55,9 @@ class DetailActivity :
         }
     }
 
-    override fun onSelected(url: String) {
+    override fun onSelected(value: String) {
         try {
-            val intent = Intent(Intent.ACTION_VIEW, url.toUri())
+            val intent = Intent(Intent.ACTION_VIEW, value.toUri())
             startActivity(intent)
         } catch (e: ActivityNotFoundException) {
             showToast("브라우저를 열 수 없습니다.")

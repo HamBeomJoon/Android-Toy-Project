@@ -11,7 +11,7 @@
 
         <variable
             name="itemClickListener"
-            type="com.example.app.presentation.view.detail.DetailClickListener" />
+            type="com.example.app.presentation.view.ItemClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,7 +69,7 @@
             app:imageUrl="@{vm.userDetailInfo.profile}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tb_main"
-            tools:src="@drawable/dice" />
+            tools:src="@drawable/ic_launcher_background" />
 
         <ImageButton
             android:layout_width="48dp"

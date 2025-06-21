@@ -6,13 +6,14 @@ import androidx.activity.viewModels
 import com.example.app.R
 import com.example.app.databinding.ActivityMainBinding
 import com.example.app.presentation.view.BaseActivity
+import com.example.app.presentation.view.ItemClickListener
 import com.example.app.presentation.view.UiState
 import com.example.app.presentation.view.detail.DetailActivity
 import com.example.app.presentation.view.search.SearchActivity
 
 class MainActivity :
     BaseActivity<ActivityMainBinding>(R.layout.activity_main),
-    UserClickListener {
+    ItemClickListener {
     private val viewModel: MainViewModel by viewModels { MainViewModelFactory() }
     private val userAdapter: UserAdapter by lazy { UserAdapter(this) }
 
@@ -48,8 +49,8 @@ class MainActivity :
         startActivity(SearchActivity.newIntent(this))
     }
 
-    override fun onSelected(userId: String) {
-        val intent = DetailActivity.newIntent(this, userId)
+    override fun onSelected(value: String) {
+        val intent = DetailActivity.newIntent(this, value)
         startActivity(intent)
     }
 

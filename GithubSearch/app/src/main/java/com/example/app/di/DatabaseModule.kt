@@ -13,7 +13,7 @@ object DatabaseModule {
     }
 
     private val database: RecentKeywordDatabase by lazy {
-        check(DatabaseModule::appContext.isInitialized) { ERROR_APP_CONTEXT_NOT_INITIALIZE }
+        check(::appContext.isInitialized) { ERROR_APP_CONTEXT_NOT_INITIALIZE }
         RecentKeywordDatabase.getInstance(appContext)
     }
 
