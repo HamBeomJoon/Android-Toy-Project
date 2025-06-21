@@ -1,7 +1,7 @@
 package com.example.app.data.repository
 
-import com.example.app.data.database.RecentKeywordEntity
 import com.example.app.data.database.toDomain
+import com.example.app.data.database.toEntity
 import com.example.app.data.datasource.local.RecentKeywordLocalDataSource
 import com.example.app.domain.model.RecentSearch
 import com.example.app.domain.repository.RecentKeywordRepository
@@ -17,7 +17,7 @@ class RecentKeywordRepositoryImpl(
 
     override suspend fun addKeyword(keyword: String): Result<Unit> =
         handleResult {
-            val entity = RecentKeywordEntity(keyword = keyword)
+            val entity = keyword.toEntity()
             recentKeywordLocalDataSource.saveKeyword(entity)
         }
 

@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import com.example.app.domain.model.RecentSearch
 import java.time.Instant
 import java.time.ZoneId
+import java.time.ZoneOffset
 
 @Entity(tableName = "recent_keywords")
 data class RecentKeywordEntity(
@@ -18,12 +19,20 @@ data class RecentKeywordEntity(
     val searchedAt: Long = System.currentTimeMillis(),
 )
 
-fun RecentKeywordEntity.toDomain(): RecentSearch =
-    RecentSearch(
-        keyword = this.keyword,
-        searchedAt =
-            Instant
-                .ofEpochMilli(searchedAt)
-                .atZone(ZoneId.systemDefault())
-                .toLocalDateTime(),
+fun RecentKeywordEntity.toDomain(): RecentSearch {
+    val isoString =
+        Instant
+            .ofEpochMilli(searchedAt)
+            .atZone(ZoneId.systemDefault())
+            .withZoneSameInstant(ZoneOffset.UTC)
+            .toInstant()
+            .toString()
+
+    return RecentSearch(keyword = keyword, searchedAt = isoString)
+}
+
+fun String.toEntity(): RecentKeywordEntity =
+    RecentKeywordEntity(
+        keyword = this,
+        searchedAt = System.currentTimeMillis(),
     )
