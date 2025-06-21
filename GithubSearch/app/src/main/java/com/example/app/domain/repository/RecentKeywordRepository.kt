@@ -1,7 +1,9 @@
 package com.example.app.domain.repository
 
+import com.example.app.domain.model.RecentSearch
+
 interface RecentKeywordRepository {
-    suspend fun getAllKeywords(): Result<List<String>>
+    suspend fun getAllKeywords(): Result<List<RecentSearch>>
 
     suspend fun addKeyword(keyword: String): Result<Unit>
 

@@ -4,8 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
-import java.time.Instant
-import java.time.ZoneId
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @BindingAdapter("formattedDate")
@@ -27,18 +26,14 @@ fun setVisible(
 @BindingAdapter("formattedDate")
 fun setFormattedDate(
     view: TextView,
-    timestamp: Long?,
+    dateTime: LocalDateTime?,
 ) {
-    timestamp ?: return
-    val dateText = formatDate(timestamp)
-    view.text = dateText
+    dateTime ?: return
+    val formatted = formatDate(dateTime)
+    view.text = formatted
 }
 
-private fun formatDate(timestamp: Long): String {
+private fun formatDate(dateTime: LocalDateTime): String {
     val formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd")
-    return Instant
-        .ofEpochMilli(timestamp)
-        .atZone(ZoneId.systemDefault())
-        .toLocalDate()
-        .format(formatter)
+    return dateTime.format(formatter)
 }

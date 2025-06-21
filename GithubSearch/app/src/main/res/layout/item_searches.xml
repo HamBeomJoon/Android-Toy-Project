@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="recentSearches"
+            name="recentSearch"
             type="com.example.app.domain.model.RecentSearch" />
 
         <variable
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:gravity="center_vertical"
-            android:text="@{recentSearches.keyword}"
+            android:text="@{recentSearch.keyword}"
             app:layout_constraintBottom_toBottomOf="@id/iv_time"
             app:layout_constraintStart_toEndOf="@id/iv_time"
             app:layout_constraintTop_toTopOf="@id/iv_time"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:textColor="@color/dark_gray"
-            app:formattedDate="@{recentSearches.searchedAt}"
+            app:formattedDate="@{recentSearch.searchedAt}"
             app:layout_constraintBottom_toBottomOf="@id/ib_delete_keyword"
             app:layout_constraintEnd_toStartOf="@id/ib_delete_keyword"
             app:layout_constraintTop_toTopOf="@id/ib_delete_keyword"

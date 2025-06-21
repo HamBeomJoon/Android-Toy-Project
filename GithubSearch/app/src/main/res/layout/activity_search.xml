@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@id/ib_back" />
 
         <TextView
-            style="@style/search_regular_12"
+            style="@style/detail_medium_14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
