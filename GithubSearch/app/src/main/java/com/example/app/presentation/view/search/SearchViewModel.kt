@@ -34,6 +34,17 @@ class SearchViewModel(
         }
     }
 
+    fun deleteKeyword(keyword: String) {
+        viewModelScope.launch {
+            recentKeywordRepository
+                .deleteKeyword(keyword)
+                .onSuccess {
+                    _snackBarMessage.value = "최근 검색어를 삭제했습니다"
+                    loadRecentSearches()
+                }.onFailure { _snackBarMessage.value = "최근 검색어 삭제에 실패했습니다" }
+        }
+    }
+
     private fun loadRecentSearches() {
         viewModelScope.launch {
             recentKeywordRepository

@@ -55,7 +55,7 @@ class SearchActivity :
     }
 
     override fun onSelected(value: String) {
-        TODO("Not yet implemented")
+        viewModel.deleteKeyword(value)
     }
 
     companion object {
