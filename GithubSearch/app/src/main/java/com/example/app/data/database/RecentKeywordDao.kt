@@ -11,7 +11,7 @@ interface RecentKeywordDao {
     suspend fun getAllRecentKeywords(): List<RecentKeywordEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertKeyword(search: RecentKeywordEntity)
+    suspend fun insertKeyword(keyword: RecentKeywordEntity)
 
     @Query("DELETE FROM recent_keywords WHERE keyword = :keyword")
     suspend fun deleteByKeyword(keyword: String)
