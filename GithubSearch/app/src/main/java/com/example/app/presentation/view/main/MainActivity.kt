@@ -41,7 +41,7 @@ class MainActivity :
     private fun observeUiState() {
         viewModel.uiState.observe(this) { state ->
             if (state is UiState.Failure) {
-                showToast(state.throwable?.message.orEmpty())
+                showSnackBar(state.throwable?.message.orEmpty())
             }
         }
     }

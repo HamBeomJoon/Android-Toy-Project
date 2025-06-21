@@ -2,7 +2,6 @@ package com.example.app.presentation.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.google.android.material.snackbar.Snackbar
 
 abstract class BaseActivity<T : ViewDataBinding>(
     @LayoutRes private val layoutId: Int,
@@ -38,8 +38,13 @@ abstract class BaseActivity<T : ViewDataBinding>(
         }
     }
 
-    protected fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    protected fun showSnackBar(
+        message: String,
+        duration: Int = Snackbar.LENGTH_SHORT,
+        anchorView: View? = null,
+    ) {
+        val targetView = anchorView ?: binding.root
+        Snackbar.make(targetView, message, duration).show()
     }
 
     protected open fun beforeSetContentView() {}

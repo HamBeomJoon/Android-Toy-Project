@@ -50,7 +50,7 @@ class DetailActivity :
     private fun observeUiState() {
         viewModel.uiState.observe(this) { state ->
             if (state is UiState.Failure) {
-                showToast(state.throwable?.message.orEmpty())
+                showSnackBar(state.throwable?.message.orEmpty())
             }
         }
     }
@@ -60,7 +60,7 @@ class DetailActivity :
             val intent = Intent(Intent.ACTION_VIEW, value.toUri())
             startActivity(intent)
         } catch (e: ActivityNotFoundException) {
-            showToast("브라우저를 열 수 없습니다.")
+            showSnackBar("브라우저를 열 수 없습니다.")
         }
     }
 

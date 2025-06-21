@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 class SearchViewModel(
     private val recentKeywordRepository: RecentKeywordRepository,
 ) : ViewModel() {
-    private val _toastMessage = SingleLiveData<String>()
-    val toastMessage: LiveData<String> = _toastMessage
+    private val _snackBarMessage = SingleLiveData<String>()
+    val snackBarMessage: LiveData<String> = _snackBarMessage
 
     val searchQuery = MutableLiveData("")
 
@@ -22,7 +22,7 @@ class SearchViewModel(
         viewModelScope.launch {
             recentKeywordRepository
                 .addKeyword(keyword)
-                .onFailure { _toastMessage.value = "최근 검색어 저장에 실패했습니다" }
+                .onFailure { _snackBarMessage.value = "최근 검색어 저장에 실패했습니다" }
         }
     }
 }

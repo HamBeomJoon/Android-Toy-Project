@@ -8,7 +8,6 @@ import com.example.app.databinding.ActivitySearchBinding
 import com.example.app.presentation.view.BaseActivity
 import com.example.app.presentation.view.ItemClickListener
 import com.example.app.presentation.view.detail.DetailActivity
-import com.google.android.material.snackbar.Snackbar
 
 class SearchActivity :
     BaseActivity<ActivitySearchBinding>(R.layout.activity_search),
@@ -39,25 +38,18 @@ class SearchActivity :
             startActivity(intent)
             finish()
         } else {
-            showToast(getString(R.string.search_toast_empty_query))
+            showSnackBar(getString(R.string.search_snack_bar_empty_query))
         }
     }
 
     private fun setObserve() {
-        viewModel.toastMessage.observe(this) { message ->
+        viewModel.snackBarMessage.observe(this) { message ->
             showSnackBar(message)
         }
     }
 
     override fun onSelected(value: String) {
         TODO("Not yet implemented")
-    }
-
-    private fun showSnackBar(message: String) {
-        Snackbar
-            .make(binding.root, message, Snackbar.LENGTH_SHORT)
-            .setAction("확인") {}
-            .show()
     }
 
     companion object {
