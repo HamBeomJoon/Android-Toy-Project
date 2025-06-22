@@ -38,12 +38,13 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/btn_naver_login" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.navercorp.nid.oauth.view.NidOAuthLoginButton
         android:id="@+id/btn_naver_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginBottom="12dp"
         android:background="@color/black"
+        android:backgroundTint="@color/white"
         android:text="@string/main_naver_login_text"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/btn_local_login" />

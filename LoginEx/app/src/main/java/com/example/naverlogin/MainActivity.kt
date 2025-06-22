@@ -40,43 +40,41 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun naverLogin() {
-        /**
-         * OAuthLoginCallback을 authenticate() 메서드 호출 시 파라미터로 전달하거나 NidOAuthLoginButton 객체에 등록하면 인증이 종료되는 것을 확인할 수 있습니다.
-         */
-        val oauthLoginCallback =
-            object : OAuthLoginCallback {
-                override fun onSuccess() {
-                    // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
-                    Log.d("addass", "로그인 성공")
-                    Log.d("asdasd", "AccessToken -> ${NaverIdLoginSDK.getAccessToken()}")
-                    Log.d("asdasdas", "RefreshToken -> ${NaverIdLoginSDK.getRefreshToken()}")
-                    Log.d("dasdsaads", "Expires -> ${NaverIdLoginSDK.getExpiresAt()}")
-                    Log.d("sadasdaas", "Type -> ${NaverIdLoginSDK.getTokenType()}")
-                    Log.d("dasdsadas", "State -> ${NaverIdLoginSDK.getState()}")
-                }
-
-                override fun onFailure(
-                    httpStatus: Int,
-                    message: String,
-                ) {
-                    val errorCode = NaverIdLoginSDK.getLastErrorCode().code
-                    val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
-                    Toast
-                        .makeText(
-                            applicationContext,
-                            "errorCode:$errorCode, errorDesc:$errorDescription",
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                }
-
-                override fun onError(
-                    errorCode: Int,
-                    message: String,
-                ) {
-                    onFailure(errorCode, message)
-                }
+    /**
+     * OAuthLoginCallback을 authenticate() 메서드 호출 시 파라미터로 전달하거나 NidOAuthLoginButton 객체에 등록하면 인증이 종료되는 것을 확인할 수 있습니다.
+     */
+    private val oauthLoginCallback =
+        object : OAuthLoginCallback {
+            override fun onSuccess() {
+                // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
+                Log.d("NaverLogin", "로그인 성공")
+                Log.d("NaverLogin", "AccessToken -> ${NaverIdLoginSDK.getAccessToken()}")
+                Log.d("NaverLogin", "RefreshToken -> ${NaverIdLoginSDK.getRefreshToken()}")
+                Log.d("NaverLogin", "Expires -> ${NaverIdLoginSDK.getExpiresAt()}")
+                Log.d("NaverLogin", "Type -> ${NaverIdLoginSDK.getTokenType()}")
+                Log.d("NaverLogin", "State -> ${NaverIdLoginSDK.getState()}")
             }
-        NaverIdLoginSDK.authenticate(this@MainActivity, oauthLoginCallback)
-    }
+
+            override fun onFailure(
+                httpStatus: Int,
+                message: String,
+            ) {
+                val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+                val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+                Toast
+                    .makeText(
+                        applicationContext,
+                        "errorCode:$errorCode, errorDesc:$errorDescription",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+            }
+
+            override fun onError(
+                errorCode: Int,
+                message: String,
+            ) {
+                onFailure(errorCode, message)
+            }
+        }
+//        NaverIdLoginSDK.authenticate(this, oauthLoginCallback)
 }
