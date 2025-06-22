@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -14,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.naverlogin"
-        minSdk = 29
+        minSdk = 34
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -29,6 +30,8 @@ android {
         buildConfigField("String", "NAVER_CLIENT_SECRET", "\"$naverClientSecret\"")
         val naverClientName = properties["NAVER_CLIENT_NAME"]
         buildConfigField("String", "NAVER_CLIENT_NAME", "\"$naverClientName\"")
+        val googleClientId = properties["GOOGLE_CLIENT_ID"]
+        buildConfigField("String", "GOOGLE_CLIENT_ID", "\"$googleClientId\"")
     }
 
     buildTypes {
@@ -70,4 +73,16 @@ dependencies {
 
     // naver login
     implementation(libs.oauth)
+
+    // google firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+
+    // google login
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.google.googleid)
+
+    // coroutine
+    implementation(libs.kotlinx.coroutines.core)
 }

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.naverlogin.BuildConfig
+import com.example.naverlogin.GoogleSignInHelper
 import com.example.naverlogin.databinding.ActivityMainBinding
 import com.example.naverlogin.model.NaverLoginResult
 import com.example.naverlogin.views.result.ResultActivity
@@ -17,6 +18,7 @@ import com.navercorp.nid.oauth.OAuthLoginCallback
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var googleLoginHelper: GoogleSignInHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,19 @@ class MainActivity : AppCompatActivity() {
             BuildConfig.NAVER_CLIENT_SECRET,
             BuildConfig.NAVER_CLIENT_NAME,
         )
+
+        googleLoginHelper = GoogleSignInHelper(this)
+
+        binding.btnGoogleLogin.setOnClickListener {
+            googleLoginHelper.requestGoogleLogin(
+                onSuccess = { result ->
+                    showToast("구글 로그인 성공: $result")
+                    val intent = ResultActivity.newIntent(this@MainActivity, result)
+                    startActivity(intent)
+                },
+                onFailure = { errorMessage -> showSnackBar(errorMessage) },
+            )
+        }
         binding.btnNaverLogin.setOAuthLogin(oauthLoginCallback = oauthLoginCallback)
     }
 
