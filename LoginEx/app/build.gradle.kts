@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -16,6 +19,15 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val properties = Properties()
+        properties.load(FileInputStream(rootProject.file("local.properties")))
+        val naverClientId = properties["NAVER_CLIENT_ID"]
+        buildConfigField("String", "NAVER_CLIENT_ID", "\"$naverClientId\"")
+        val naverClientSecret = properties["NAVER_CLIENT_SECRET"]
+        buildConfigField("String", "NAVER_CLIENT_SECRET", "\"$naverClientSecret\"")
+        val naverClientName = properties["NAVER_CLIENT_NAME"]
+        buildConfigField("String", "NAVER_CLIENT_NAME", "\"$naverClientName\"")
     }
 
     buildTypes {
@@ -37,6 +49,7 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+        buildConfig = true
     }
 }
 

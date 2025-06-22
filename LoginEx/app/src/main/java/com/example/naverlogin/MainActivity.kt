@@ -23,10 +23,13 @@ class MainActivity : AppCompatActivity() {
 
         initInsets()
 
-        NaverIdLoginSDK.initialize(this, "09Ca4s8gs0pSV50mf6QW", "W7tG2yLIkd", "loginEx")
-        binding.btnNaverLogin.setOnClickListener {
-            naverLogin()
-        }
+        NaverIdLoginSDK.initialize(
+            this,
+            BuildConfig.NAVER_CLIENT_ID,
+            BuildConfig.NAVER_CLIENT_SECRET,
+            BuildConfig.NAVER_CLIENT_NAME,
+        )
+        binding.btnNaverLogin.setOAuthLogin(oauthLoginCallback = oauthLoginCallback)
     }
 
     private fun initInsets() {
