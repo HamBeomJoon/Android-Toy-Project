@@ -22,7 +22,7 @@
         android:id="@+id/btn_kakao_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/black"
         android:text="@string/main_kakao_login_text"
         android:textColor="@color/white"
@@ -30,19 +30,21 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_google_login"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:background="@color/black"
-        android:text="@string/main_google_login_text"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/img_google_login"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/btn_naver_login" />
+        app:layout_constraintBottom_toTopOf="@id/btn_naver_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.navercorp.nid.oauth.view.NidOAuthLoginButton
         android:id="@+id/btn_naver_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/black"
         android:backgroundTint="@color/white"
         android:text="@string/main_naver_login_text"
