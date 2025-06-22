@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">naverLogin</string>
+    <string name="app_name">SocialLogin</string>
+
+    <string name="main_title">Social Login Example</string>
+    <string name="main_kakao_login_text">카카오 로그인</string>
+    <string name="main_google_login_text">구글 로그인</string>
+    <string name="main_naver_login_text">네이버 로그인</string>
+    <string name="main_local_login_text">로컬 로그인</string>
 </resources>

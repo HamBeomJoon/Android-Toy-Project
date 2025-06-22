@@ -5,15 +5,56 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/main_title"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_kakao_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@color/black"
+        android:text="@string/main_kakao_login_text"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/btn_google_login" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_google_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@color/black"
+        android:text="@string/main_google_login_text"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/btn_naver_login" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_naver_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="12dp"
         android:background="@color/black"
-        android:text="네이버 로그인"
+        android:text="@string/main_naver_login_text"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/btn_local_login" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_local_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:background="@color/black"
+        android:text="@string/main_local_login_text"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent" />
 
