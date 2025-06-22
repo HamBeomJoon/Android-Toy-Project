@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.naverlogin.BuildConfig
 import com.example.naverlogin.GoogleSignInHelper
 import com.example.naverlogin.databinding.ActivityMainBinding
+import com.example.naverlogin.model.LoginType
 import com.example.naverlogin.model.NaverLoginResult
 import com.example.naverlogin.views.result.ResultActivity
 import com.google.android.material.snackbar.Snackbar
@@ -42,7 +43,12 @@ class MainActivity : AppCompatActivity() {
             googleLoginHelper.requestGoogleLogin(
                 onSuccess = { result ->
                     showToast("구글 로그인 성공: $result")
-                    val intent = ResultActivity.newIntent(this@MainActivity, result)
+                    val intent =
+                        ResultActivity.newIntent(
+                            context = this@MainActivity,
+                            loginType = LoginType.GOOGLE,
+                            googleResult = result,
+                        )
                     startActivity(intent)
                 },
                 onFailure = { errorMessage -> showSnackBar(errorMessage) },
@@ -76,7 +82,12 @@ class MainActivity : AppCompatActivity() {
                         state = NaverIdLoginSDK.getState(),
                     )
 
-                val intent = ResultActivity.newIntent(this@MainActivity, naverLoginResult)
+                val intent =
+                    ResultActivity.newIntent(
+                        context = this@MainActivity,
+                        loginType = LoginType.NAVER,
+                        naverResult = naverLoginResult,
+                    )
                 startActivity(intent)
             }
 

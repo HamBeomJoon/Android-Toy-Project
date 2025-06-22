@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="loginType"
+            type="com.example.naverlogin.model.LoginType" />
+
+        <variable
             name="vm"
             type="com.example.naverlogin.views.result.ResultViewModel" />
     </data>
@@ -17,15 +21,16 @@
         android:background="@color/white">
 
         <TextView
-            android:id="@+id/tv_result"
+            android:id="@+id/tv_login_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/result_title"
+            android:text="@{@string/result_login_type(vm.loginType)}"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Login Type: Google" />
 
         <TextView
             android:id="@+id/tv_access_token"
@@ -37,7 +42,8 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_result"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_type"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
             tools:text="accessToken: sadasdaa12312kj3b12j3h12kj3h12kj" />
 
         <TextView
@@ -51,6 +57,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_access_token"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
             tools:text="refreshToken: dsaldjh238edwqoudhihkwqjdhqwkj" />
 
         <TextView
@@ -64,6 +71,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_refresh_token"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
             tools:text="Expires: 2025-09-01" />
 
         <TextView
@@ -77,6 +85,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_expires"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
             tools:text="Type: bearer" />
 
         <TextView
@@ -90,7 +99,52 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_type"
             app:stateText="@{vm.naverResult.state}"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
             tools:text="State: OK" />
+
+        <TextView
+            android:id="@+id/tv_google_id_token"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:ellipsize="end"
+            android:maxLines="10"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_google_id_token(vm.googleResult.idToken)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_type"
+            app:visibleGone="@{vm.loginType == loginType.GOOGLE}"
+            tools:text="idToken: asljdlskaj1209u0219ujasd2" />
+
+        <TextView
+            android:id="@+id/tv_google_id"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_google_id(vm.googleResult.id)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_google_id_token"
+            app:visibleGone="@{vm.loginType == loginType.GOOGLE}"
+            tools:text="Id: abc@gmail.com" />
+
+        <TextView
+            android:id="@+id/tv_google_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_google_name(vm.googleResult.displayName)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_google_id"
+            app:visibleGone="@{vm.loginType == loginType.GOOGLE}"
+            tools:text="Name: 홍길동" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

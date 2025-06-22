@@ -1,6 +1,7 @@
 package com.example.naverlogin.bindingadapter
 
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.example.naverlogin.R
 import com.navercorp.nid.oauth.NidOAuthLoginState
@@ -45,4 +46,12 @@ fun setStateText(
         }
 
     view.text = context.getString(R.string.result_naver_state, stateText)
+}
+
+@BindingAdapter("visibleGone")
+fun setVisibleGone(
+    view: TextView,
+    visible: Boolean,
+) {
+    view.isVisible = visible
 }

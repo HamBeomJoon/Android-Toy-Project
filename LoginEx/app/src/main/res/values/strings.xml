@@ -7,10 +7,15 @@
     <string name="main_naver_login_text">네이버 로그인</string>
     <string name="main_local_login_text">로컬 로그인</string>
 
+    <string name="result_login_type">Login Type: %s</string>
+
     <string name="result_naver_access">AccessToken: %s</string>
     <string name="result_naver_refresh">RefreshToken: %s</string>
     <string name="result_naver_expires">Expires: %s</string>
     <string name="result_naver_type">Type: %s</string>
     <string name="result_naver_state">State: %s</string>
-    <string name="result_title">Result</string>
+
+    <string name="result_google_id_token">IdToken: %s</string>
+    <string name="result_google_id">Id: %s</string>
+    <string name="result_google_name">Name: %s</string>
 </resources>

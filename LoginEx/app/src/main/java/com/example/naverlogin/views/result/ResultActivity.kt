@@ -3,6 +3,7 @@ package com.example.naverlogin.views.result
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,8 @@ import androidx.databinding.DataBindingUtil
 import com.example.naverlogin.R
 import com.example.naverlogin.databinding.ActivityResultBinding
 import com.example.naverlogin.getParcelableExtraCompat
+import com.example.naverlogin.model.GoogleLoginResult
+import com.example.naverlogin.model.LoginType
 import com.example.naverlogin.model.NaverLoginResult
 
 class ResultActivity : AppCompatActivity() {
@@ -28,9 +31,24 @@ class ResultActivity : AppCompatActivity() {
 
         initInsets()
 
-        intent
-            .getParcelableExtraCompat<NaverLoginResult>(EXTRA_NAVER_LOGIN_RESULT)
-            .let { viewModel.setNaverResult(it) }
+        val loginType = intent.getParcelableExtraCompat<LoginType>(EXTRA_LOGIN_TYPE)
+        viewModel.setLoginType(loginType)
+
+        when (loginType) {
+            LoginType.NAVER -> {
+                val result =
+                    intent.getParcelableExtraCompat<NaverLoginResult>(EXTRA_NAVER_LOGIN_RESULT)
+                viewModel.setNaverResult(result)
+            }
+
+            LoginType.GOOGLE -> {
+                val result =
+                    intent.getParcelableExtraCompat<GoogleLoginResult>(EXTRA_GOOGLE_LOGIN_RESULT)
+                viewModel.setGoogleResult(result)
+            }
+
+            else -> {}
+        }
     }
 
     private fun initInsets() {
@@ -42,14 +60,20 @@ class ResultActivity : AppCompatActivity() {
     }
 
     companion object {
+        const val EXTRA_LOGIN_TYPE = "login_type"
         const val EXTRA_NAVER_LOGIN_RESULT = "naver_login_result"
+        const val EXTRA_GOOGLE_LOGIN_RESULT = "google_login_result"
 
         fun newIntent(
             context: Context,
-            result: NaverLoginResult,
+            loginType: LoginType,
+            naverResult: NaverLoginResult? = null,
+            googleResult: GoogleLoginResult? = null,
         ): Intent =
             Intent(context, ResultActivity::class.java).apply {
-                putExtra(EXTRA_NAVER_LOGIN_RESULT, result)
+                putExtra(EXTRA_LOGIN_TYPE, loginType as Parcelable)
+                naverResult?.let { putExtra(EXTRA_NAVER_LOGIN_RESULT, it) }
+                googleResult?.let { putExtra(EXTRA_GOOGLE_LOGIN_RESULT, it) }
             }
     }
 }
