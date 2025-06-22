@@ -12,7 +12,7 @@ class UserRepositoryImpl(
 ) : UserRepository {
     override suspend fun fetchRandomUsers(): Result<List<UserInfo>> =
         handleResult {
-            val randomId = (1..100_000_000).random()
+            val randomId = (1..10_000_000).random()
             val response = userRemoteDataSource.getRandomUsers(afterUserId = randomId).getOrThrow()
             response.map { it.toDomain() }
         }

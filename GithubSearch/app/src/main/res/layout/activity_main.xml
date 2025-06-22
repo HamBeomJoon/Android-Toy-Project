@@ -45,16 +45,27 @@
             app:layout_constraintTop_toTopOf="@id/iv_logo" />
 
         <ImageButton
+            android:id="@+id/ib_refresh"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/light_gray"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_refresh"
+            app:layout_constraintBottom_toBottomOf="@id/ib_user_search"
+            app:layout_constraintEnd_toStartOf="@id/ib_user_search"
+            app:layout_constraintTop_toTopOf="@id/ib_user_search" />
+
+        <ImageButton
             android:id="@+id/ib_user_search"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginEnd="3dp"
             android:background="@color/light_gray"
+            android:contentDescription="@null"
             android:src="@drawable/ic_search"
             app:layout_constraintBottom_toBottomOf="@id/iv_logo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_logo"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintTop_toTopOf="@id/iv_logo" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_main"
@@ -78,6 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:paddingHorizontal="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tb_main"
             app:shimmerLoading="@{vm.isLoading}"
             app:shimmer_auto_start="true">
@@ -87,6 +99,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:columnCount="2">
+
+                <include
+                    layout="@layout/list_user_loading"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1" />
+
+                <include
+                    layout="@layout/list_user_loading"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_columnWeight="1" />
 
                 <include
                     layout="@layout/list_user_loading"

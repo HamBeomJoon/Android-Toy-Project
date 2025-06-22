@@ -25,6 +25,7 @@ class MainActivity :
     }
 
     override fun initListener() {
+        binding.ibRefresh.setOnClickListener { viewModel.fetchUsers() }
         binding.ibUserSearch.setOnClickListener { navigateToSearch() }
     }
 

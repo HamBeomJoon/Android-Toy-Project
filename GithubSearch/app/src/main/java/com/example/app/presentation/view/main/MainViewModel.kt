@@ -33,7 +33,7 @@ class MainViewModel(
         fetchUsers()
     }
 
-    private fun fetchUsers() {
+    fun fetchUsers() {
         _uiState.value = UiState.Loading
 
         viewModelScope.launch {
