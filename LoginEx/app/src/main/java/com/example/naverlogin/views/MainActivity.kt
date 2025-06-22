@@ -1,13 +1,17 @@
-package com.example.naverlogin
+package com.example.naverlogin.views
 
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.naverlogin.BuildConfig
 import com.example.naverlogin.databinding.ActivityMainBinding
+import com.example.naverlogin.model.NaverLoginResult
+import com.example.naverlogin.views.result.ResultActivity
+import com.google.android.material.snackbar.Snackbar
 import com.navercorp.nid.NaverIdLoginSDK
 import com.navercorp.nid.oauth.OAuthLoginCallback
 
@@ -46,13 +50,19 @@ class MainActivity : AppCompatActivity() {
     private val oauthLoginCallback =
         object : OAuthLoginCallback {
             override fun onSuccess() {
-                // 네이버 로그인 인증이 성공했을 때 수행할 코드 추가
-                Log.d("NaverLogin", "로그인 성공")
-                Log.d("NaverLogin", "AccessToken -> ${NaverIdLoginSDK.getAccessToken()}")
-                Log.d("NaverLogin", "RefreshToken -> ${NaverIdLoginSDK.getRefreshToken()}")
-                Log.d("NaverLogin", "Expires -> ${NaverIdLoginSDK.getExpiresAt()}")
-                Log.d("NaverLogin", "Type -> ${NaverIdLoginSDK.getTokenType()}")
-                Log.d("NaverLogin", "State -> ${NaverIdLoginSDK.getState()}")
+                showSnackBar("네이버 로그인 성공")
+
+                val naverLoginResult =
+                    NaverLoginResult(
+                        accessToken = NaverIdLoginSDK.getAccessToken(),
+                        refreshToken = NaverIdLoginSDK.getRefreshToken(),
+                        expires = NaverIdLoginSDK.getExpiresAt(),
+                        type = NaverIdLoginSDK.getTokenType(),
+                        state = NaverIdLoginSDK.getState(),
+                    )
+
+                val intent = ResultActivity.newIntent(this@MainActivity, naverLoginResult)
+                startActivity(intent)
             }
 
             override fun onFailure(
@@ -77,4 +87,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 //        NaverIdLoginSDK.authenticate(this, oauthLoginCallback)
+
+    private fun showSnackBar(
+        message: String,
+        duration: Int = Snackbar.LENGTH_SHORT,
+        anchorView: View? = null,
+    ) {
+        val targetView = anchorView ?: binding.root
+        Snackbar.make(targetView, message, duration).show()
+    }
 }
