@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     private val oauthLoginCallback =
         object : OAuthLoginCallback {
             override fun onSuccess() {
-                showSnackBar("네이버 로그인 성공")
+                showToast("네이버 로그인 성공")
 
                 val naverLoginResult =
                     NaverLoginResult(
@@ -71,12 +71,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 val errorCode = NaverIdLoginSDK.getLastErrorCode().code
                 val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
-                Toast
-                    .makeText(
-                        applicationContext,
-                        "errorCode:$errorCode, errorDesc:$errorDescription",
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                showSnackBar("errorCode:$errorCode, errorDesc:$errorDescription")
             }
 
             override fun onError(
@@ -86,7 +81,10 @@ class MainActivity : AppCompatActivity() {
                 onFailure(errorCode, message)
             }
         }
-//        NaverIdLoginSDK.authenticate(this, oauthLoginCallback)
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 
     private fun showSnackBar(
         message: String,
