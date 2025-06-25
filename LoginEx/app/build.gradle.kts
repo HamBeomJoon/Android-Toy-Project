@@ -24,6 +24,9 @@ android {
 
         val properties = Properties()
         properties.load(FileInputStream(rootProject.file("local.properties")))
+        val kakaoNativeKey = properties["KAKAO_NATIVE_KEY"]
+        manifestPlaceholders["kakaoScheme"] = "kakao$kakaoNativeKey"
+        buildConfigField("String", "KAKAO_NATIVE_KEY", "\"$kakaoNativeKey\"")
         val naverClientId = properties["NAVER_CLIENT_ID"]
         buildConfigField("String", "NAVER_CLIENT_ID", "\"$naverClientId\"")
         val naverClientSecret = properties["NAVER_CLIENT_SECRET"]
@@ -85,4 +88,7 @@ dependencies {
 
     // coroutine
     implementation(libs.kotlinx.coroutines.core)
+
+    // kakao SDK
+    implementation(libs.v2.all)
 }
