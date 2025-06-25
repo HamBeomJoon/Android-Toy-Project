@@ -1,4 +1,4 @@
-package com.example.naverlogin.views
+package com.example.loginEx.views
 
 import android.os.Bundle
 import android.view.View
@@ -7,12 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.naverlogin.BuildConfig
-import com.example.naverlogin.GoogleSignInHelper
-import com.example.naverlogin.databinding.ActivityMainBinding
-import com.example.naverlogin.model.LoginType
-import com.example.naverlogin.model.NaverLoginResult
-import com.example.naverlogin.views.result.ResultActivity
+import com.example.loginEx.BuildConfig
+import com.example.loginEx.GoogleSignInHelper
+import com.example.loginEx.databinding.ActivityMainBinding
+import com.example.loginEx.model.LoginType
+import com.example.loginEx.model.NaverLoginResult
+import com.example.loginEx.views.result.ResultActivity
 import com.google.android.material.snackbar.Snackbar
 import com.navercorp.nid.NaverIdLoginSDK
 import com.navercorp.nid.oauth.OAuthLoginCallback

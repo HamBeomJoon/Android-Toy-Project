@@ -1,4 +1,4 @@
-package com.example.naverlogin
+package com.example.loginEx
 
 import android.content.Context
 import android.util.Log
@@ -7,7 +7,7 @@ import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
 import androidx.credentials.exceptions.GetCredentialException
-import com.example.naverlogin.model.GoogleLoginResult
+import com.example.loginEx.model.GoogleLoginResult
 import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingException

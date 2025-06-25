@@ -1,4 +1,4 @@
-package com.example.naverlogin.model
+package com.example.loginEx.model
 
 import android.os.Parcelable
 import com.navercorp.nid.oauth.NidOAuthLoginState

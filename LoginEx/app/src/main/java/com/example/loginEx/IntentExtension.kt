@@ -1,4 +1,4 @@
-package com.example.naverlogin
+package com.example.loginEx
 
 import android.content.Intent
 import android.os.Build

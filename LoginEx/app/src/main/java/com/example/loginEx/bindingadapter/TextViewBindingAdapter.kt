@@ -1,9 +1,9 @@
-package com.example.naverlogin.bindingadapter
+package com.example.loginEx.bindingadapter
 
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
-import com.example.naverlogin.R
+import com.example.loginEx.R
 import com.navercorp.nid.oauth.NidOAuthLoginState
 import java.time.Instant
 import java.time.ZoneId

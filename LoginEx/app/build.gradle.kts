@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.naverlogin"
+    namespace = "com.example.loginEx"
     compileSdk = 35
 
     defaultConfig {

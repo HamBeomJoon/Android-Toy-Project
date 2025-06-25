@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "naverLogin"
+rootProject.name = "loginEx"
 include(":app")

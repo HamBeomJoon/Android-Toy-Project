@@ -7,11 +7,11 @@
 
         <variable
             name="loginType"
-            type="com.example.naverlogin.model.LoginType" />
+            type="com.example.loginEx.model.LoginType" />
 
         <variable
             name="vm"
-            type="com.example.naverlogin.views.result.ResultViewModel" />
+            type="com.example.loginEx.views.result.ResultViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,4 +1,4 @@
-package com.example.naverlogin.views.result
+package com.example.loginEx.views.result
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

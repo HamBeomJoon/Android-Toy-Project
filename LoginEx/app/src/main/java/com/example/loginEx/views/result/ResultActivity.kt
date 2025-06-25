@@ -1,4 +1,4 @@
-package com.example.naverlogin.views.result
+package com.example.loginEx.views.result
 
 import android.content.Context
 import android.content.Intent
@@ -10,12 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
-import com.example.naverlogin.R
-import com.example.naverlogin.databinding.ActivityResultBinding
-import com.example.naverlogin.getParcelableExtraCompat
-import com.example.naverlogin.model.GoogleLoginResult
-import com.example.naverlogin.model.LoginType
-import com.example.naverlogin.model.NaverLoginResult
+import com.example.loginEx.R
+import com.example.loginEx.databinding.ActivityResultBinding
+import com.example.loginEx.getParcelableExtraCompat
+import com.example.loginEx.model.GoogleLoginResult
+import com.example.loginEx.model.LoginType
+import com.example.loginEx.model.NaverLoginResult
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultBinding
