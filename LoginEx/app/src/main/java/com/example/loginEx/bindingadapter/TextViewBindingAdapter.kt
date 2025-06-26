@@ -1,5 +1,6 @@
 package com.example.loginEx.bindingadapter
 
+import android.content.Context
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
@@ -9,22 +10,26 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.ZoneId
 import java.util.Date
-import java.util.Locale
+
+private fun formatDate(
+    context: Context,
+    date: Date?,
+): String {
+    val locale = context.resources.configuration.locales[0]
+    val formatter = SimpleDateFormat("yyyy-MM-dd", locale)
+    return date?.let { formatter.format(it) }.orEmpty()
+}
 
 @BindingAdapter("kakaoAccessExpiresText")
 fun setKakaoAccessExpiresText(
     view: TextView,
     time: Date?,
 ) {
-    val context = view.context
-    if (time == null) {
-        view.text = ""
-        return
-    }
-
-    val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     view.text =
-        context.getString(R.string.result_kakao_access_token_expires, formatter.format(time))
+        view.context.getString(
+            R.string.result_kakao_access_token_expires,
+            formatDate(view.context, time),
+        )
 }
 
 @BindingAdapter("kakaoRefreshExpiresText")
@@ -32,15 +37,11 @@ fun setKakaoRefreshExpiresText(
     view: TextView,
     time: Date?,
 ) {
-    val context = view.context
-    if (time == null) {
-        view.text = ""
-        return
-    }
-
-    val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     view.text =
-        context.getString(R.string.result_kakao_refresh_token_expires, formatter.format(time))
+        view.context.getString(
+            R.string.result_kakao_refresh_token_expires,
+            formatDate(view.context, time),
+        )
 }
 
 @BindingAdapter("kakaoScopesText")
@@ -49,15 +50,12 @@ fun setKakaoScopes(
     scopes: List<String>?,
 ) {
     val context = view.context
-    if (!scopes.isNullOrEmpty()) {
-        view.text =
-            context.getString(
-                R.string.result_kakao_agrees,
-                scopes.joinToString(", "),
-            )
-    } else {
-        view.text = "동의항목 없음"
-    }
+    view.text =
+        if (!scopes.isNullOrEmpty()) {
+            context.getString(R.string.result_kakao_agrees, scopes.joinToString(", "))
+        } else {
+            context.getString(R.string.result_kakao_agrees, "없음")
+        }
 }
 
 @BindingAdapter("expiresDateText")
@@ -65,20 +63,18 @@ fun setExpiresDateText(
     view: TextView,
     timestamp: Long?,
 ) {
-    if (timestamp == null) {
-        view.text = ""
-        return
-    }
-
     val context = view.context
+    val dateText =
+        timestamp
+            ?.let {
+                Instant
+                    .ofEpochSecond(it)
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate()
+                    .toString()
+            }.orEmpty()
 
-    val date =
-        Instant
-            .ofEpochSecond(timestamp)
-            .atZone(ZoneId.systemDefault())
-            .toLocalDate()
-
-    view.text = context.getString(R.string.result_naver_token_expires, date)
+    view.text = context.getString(R.string.result_naver_token_expires, dateText)
 }
 
 @BindingAdapter("stateText")
@@ -87,7 +83,6 @@ fun setStateText(
     state: NidOAuthLoginState?,
 ) {
     val context = view.context
-
     val stateText =
         when (state) {
             NidOAuthLoginState.NEED_INIT -> "초기화 필요"
@@ -96,7 +91,6 @@ fun setStateText(
             NidOAuthLoginState.OK -> "정상"
             null -> ""
         }
-
     view.text = context.getString(R.string.result_naver_state, stateText)
 }
 
