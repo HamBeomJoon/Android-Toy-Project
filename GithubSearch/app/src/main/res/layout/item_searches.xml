@@ -7,11 +7,11 @@
 
         <variable
             name="recentSearch"
-            type="com.example.app.domain.model.RecentSearch" />
+            type="com.example.githubSearch.domain.model.RecentSearch" />
 
         <variable
             name="itemClickListener"
-            type="com.example.app.presentation.view.ItemClickListener" />
+            type="com.example.githubSearch.presentation.view.ItemClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

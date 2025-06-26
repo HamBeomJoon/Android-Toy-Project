@@ -9,12 +9,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.app"
+    namespace = "com.example.githubSearch"
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.app"
-        minSdk = 26
+        minSdk = 32
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"

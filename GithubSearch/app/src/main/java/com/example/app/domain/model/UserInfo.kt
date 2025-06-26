@@ -1,6 +1,0 @@
-package com.example.app.domain.model
-
-data class UserInfo(
-    val profile: String,
-    val userId: String,
-)
