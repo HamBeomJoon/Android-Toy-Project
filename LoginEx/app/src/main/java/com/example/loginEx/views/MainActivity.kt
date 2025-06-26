@@ -123,7 +123,21 @@ class MainActivity : AppCompatActivity() {
                         // 카카오톡에 연결된 카카오계정이 없는 경우, 카카오계정으로 로그인 시도
                         UserApiClient.instance.loginWithKakaoAccount(this, callback = kakaoCallback)
                     } else if (token != null) {
-                        Log.i("kakao login", "카카오톡으로 로그인 성공 ${token.accessToken}")
+                        showToast("카카오 로그인 성공")
+                        val intent =
+                            ResultActivity.newIntent(
+                                context = this@MainActivity,
+                                loginResult =
+                                    KakaoLoginResult(
+                                        accessToken = token.accessToken,
+                                        accessTokenExpiresAt = token.accessTokenExpiresAt,
+                                        refreshToken = token.refreshToken,
+                                        refreshTokenExpiresAt = token.refreshTokenExpiresAt,
+                                        idToken = token.idToken,
+                                        scopes = token.scopes,
+                                    ),
+                            )
+                        startActivity(intent)
                     }
                 }
             } else {

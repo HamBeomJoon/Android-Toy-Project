@@ -15,8 +15,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.naverlogin"
-        minSdk = 34
-        targetSdk = 35
+        minSdk = 33
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
