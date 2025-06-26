@@ -9,6 +9,13 @@
 
     <string name="result_login_type">Login Type: %s</string>
 
+    <string name="result_kakao_access_token">AccessToken: %s</string>
+    <string name="result_kakao_access_token_expires">Access Token Expires: %s</string>
+    <string name="result_kakao_refresh_token">Refresh Token: %s</string>
+    <string name="result_kakao_refresh_token_expires">Refresh Token Expires: %s</string>
+    <string name="result_kakao_id_token">Id Token: %s</string>
+    <string name="result_kakao_agrees">동의항목: %s</string>
+
     <string name="result_naver_access">AccessToken: %s</string>
     <string name="result_naver_refresh">RefreshToken: %s</string>
     <string name="result_naver_expires">Expires: %s</string>

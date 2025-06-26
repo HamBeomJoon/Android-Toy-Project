@@ -5,8 +5,50 @@ import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.example.loginEx.R
 import com.navercorp.nid.oauth.NidOAuthLoginState
+import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.ZoneId
+import java.util.Date
+import java.util.Locale
+
+@BindingAdapter("kakaoAccessExpiresText")
+fun setKakaoAccessExpiresText(
+    view: TextView,
+    time: Date,
+) {
+    val context = view.context
+    val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    view.text =
+        context.getString(R.string.result_kakao_access_token_expires, formatter.format(time))
+}
+
+@BindingAdapter("kakaoRefreshExpiresText")
+fun setKakaoRefreshExpiresText(
+    view: TextView,
+    time: Date,
+) {
+    val context = view.context
+    val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    view.text =
+        context.getString(R.string.result_kakao_refresh_token_expires, formatter.format(time))
+}
+
+@BindingAdapter("kakaoScopesText")
+fun setKakaoScopes(
+    view: TextView,
+    scopes: List<String>?,
+) {
+    val context = view.context
+    if (!scopes.isNullOrEmpty()) {
+        view.text =
+            context.getString(
+                R.string.result_kakao_agrees,
+                scopes.joinToString(", "),
+            )
+    } else {
+        view.text = "동의항목 없음"
+    }
+}
 
 @BindingAdapter("expiresDateText")
 fun setExpiresDateText(

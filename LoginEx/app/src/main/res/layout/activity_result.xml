@@ -33,7 +33,87 @@
             tools:text="Login Type: Google" />
 
         <TextView
-            android:id="@+id/tv_access_token"
+            android:id="@+id/tv_kakao_access_token"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_kakao_access_token(vm.kakaoResult.accessToken)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_type"
+            tools:text="AccessToken: sadadwqj2lj2l1k" />
+
+        <TextView
+            android:id="@+id/tv_kakao_access_token_expires"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:textSize="20sp"
+            app:kakaoAccessExpiresText="@{vm.kakaoResult.accessTokenExpiresAt}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_kakao_access_token"
+            tools:text="Access Token Expires: 2025-06-28" />
+
+        <TextView
+            android:id="@+id/tv_kakao_refresh_token"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_kakao_refresh_token(vm.kakaoResult.refreshToken)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_kakao_access_token_expires"
+            tools:text="Refresh Token: asdlasdnjlhalhd213412" />
+
+        <TextView
+            android:id="@+id/tv_kakao_refresh_token_expires"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:textSize="20sp"
+            app:kakaoRefreshExpiresText="@{vm.kakaoResult.refreshTokenExpiresAt}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_kakao_refresh_token"
+            tools:text="Refresh Token Expires: 2025-06-28" />
+
+        <TextView
+            android:id="@+id/tv_kakao_id_token"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_kakao_id_token(vm.kakaoResult.idToken)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_kakao_refresh_token_expires"
+            tools:text="idToken: asdaksdkaosksajdk12312" />
+
+        <TextView
+            android:id="@+id/tv_kakao_agrees"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:textSize="20sp"
+            app:kakaoScopesText="@{vm.kakaoResult.scopes}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_kakao_id_token"
+            tools:text="동의항목: profile_image, profile_nickname" />
+
+        <TextView
+            android:id="@+id/tv_naver_access_token"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -47,7 +127,7 @@
             tools:text="accessToken: sadasdaa12312kj3b12j3h12kj3h12kj" />
 
         <TextView
-            android:id="@+id/tv_refresh_token"
+            android:id="@+id/tv_naver_refresh_token"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -56,12 +136,12 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_access_token"
+            app:layout_constraintTop_toBottomOf="@id/tv_naver_access_token"
             app:visibleGone="@{vm.loginType == loginType.NAVER}"
             tools:text="refreshToken: dsaldjh238edwqoudhihkwqjdhqwkj" />
 
         <TextView
-            android:id="@+id/tv_expires"
+            android:id="@+id/tv_naver_expires"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -70,7 +150,7 @@
             app:expiresDateText="@{vm.naverResult.expires}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_refresh_token"
+            app:layout_constraintTop_toBottomOf="@id/tv_naver_refresh_token"
             app:visibleGone="@{vm.loginType == loginType.NAVER}"
             tools:text="Expires: 2025-09-01" />
 
@@ -84,7 +164,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_expires"
+            app:layout_constraintTop_toBottomOf="@id/tv_naver_expires"
             app:visibleGone="@{vm.loginType == loginType.NAVER}"
             tools:text="Type: bearer" />
 

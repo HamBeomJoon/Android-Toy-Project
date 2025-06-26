@@ -36,6 +36,12 @@ class ResultActivity : AppCompatActivity() {
         viewModel.setLoginType(loginType)
 
         when (loginType) {
+            LoginType.KAKAO -> {
+                val result =
+                    intent.getParcelableExtraCompat<KakaoLoginResult>(EXTRA_KAKAO_LOGIN_RESULT)
+                viewModel.setKakaoResult(result)
+            }
+
             LoginType.NAVER -> {
                 val result =
                     intent.getParcelableExtraCompat<NaverLoginResult>(EXTRA_NAVER_LOGIN_RESULT)
@@ -47,8 +53,6 @@ class ResultActivity : AppCompatActivity() {
                     intent.getParcelableExtraCompat<GoogleLoginResult>(EXTRA_GOOGLE_LOGIN_RESULT)
                 viewModel.setGoogleResult(result)
             }
-
-            else -> {}
         }
     }
 
@@ -75,7 +79,7 @@ class ResultActivity : AppCompatActivity() {
         ): Intent =
             Intent(context, ResultActivity::class.java).apply {
                 putExtra(EXTRA_LOGIN_TYPE, loginType as Parcelable)
-                kakaoResult?.let { putExtra(EXTRA_NAVER_LOGIN_RESULT, it) }
+                kakaoResult?.let { putExtra(EXTRA_KAKAO_LOGIN_RESULT, it) }
                 naverResult?.let { putExtra(EXTRA_NAVER_LOGIN_RESULT, it) }
                 googleResult?.let { putExtra(EXTRA_GOOGLE_LOGIN_RESULT, it) }
             }
