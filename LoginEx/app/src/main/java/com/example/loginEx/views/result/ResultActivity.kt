@@ -25,35 +25,12 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_result)
         binding.lifecycleOwner = this
         binding.vm = viewModel
 
         initInsets()
-
-        val loginType = intent.getParcelableExtraCompat<LoginType>(EXTRA_LOGIN_TYPE)
-        viewModel.setLoginType(loginType)
-
-        when (loginType) {
-            LoginType.KAKAO -> {
-                val result =
-                    intent.getParcelableExtraCompat<KakaoLoginResult>(EXTRA_KAKAO_LOGIN_RESULT)
-                viewModel.setKakaoResult(result)
-            }
-
-            LoginType.NAVER -> {
-                val result =
-                    intent.getParcelableExtraCompat<NaverLoginResult>(EXTRA_NAVER_LOGIN_RESULT)
-                viewModel.setNaverResult(result)
-            }
-
-            LoginType.GOOGLE -> {
-                val result =
-                    intent.getParcelableExtraCompat<GoogleLoginResult>(EXTRA_GOOGLE_LOGIN_RESULT)
-                viewModel.setGoogleResult(result)
-            }
-        }
+        handleIntent()
     }
 
     private fun initInsets() {
@@ -61,6 +38,28 @@ class ResultActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+    }
+
+    private fun handleIntent() {
+        val loginType = intent.getParcelableExtraCompat<LoginType>(EXTRA_LOGIN_TYPE)
+        viewModel.setLoginType(loginType)
+
+        when (loginType) {
+            LoginType.KAKAO ->
+                intent
+                    .getParcelableExtraCompat<KakaoLoginResult>(EXTRA_KAKAO_LOGIN_RESULT)
+                    .let { viewModel.setKakaoResult(it) }
+
+            LoginType.NAVER ->
+                intent
+                    .getParcelableExtraCompat<NaverLoginResult>(EXTRA_NAVER_LOGIN_RESULT)
+                    .let { viewModel.setNaverResult(it) }
+
+            LoginType.GOOGLE ->
+                intent
+                    .getParcelableExtraCompat<GoogleLoginResult>(EXTRA_GOOGLE_LOGIN_RESULT)
+                    .let { viewModel.setGoogleResult(it) }
         }
     }
 
