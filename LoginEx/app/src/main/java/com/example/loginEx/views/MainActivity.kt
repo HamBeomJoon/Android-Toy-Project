@@ -29,21 +29,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initInsets()
+        initKakao()
+        initGoogle()
+        initNaver()
+    }
 
-        NaverIdLoginSDK.initialize(
-            this,
-            BuildConfig.NAVER_CLIENT_ID,
-            BuildConfig.NAVER_CLIENT_SECRET,
-            BuildConfig.NAVER_CLIENT_NAME,
-        )
+    private fun initInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
 
-        googleLoginHelper = GoogleSignInHelper(this)
-
+    private fun initKakao() {
         binding.btnKakaoLogin.setOnClickListener {
             // 카카오계정으로 로그인 공통 callback 구성
             // 카카오톡으로 로그인 할 수 없어 카카오계정으로 로그인할 경우 사용됨
@@ -91,7 +94,10 @@ class MainActivity : AppCompatActivity() {
                 UserApiClient.instance.loginWithKakaoAccount(this, callback = kakaoCallback)
             }
         }
+    }
 
+    private fun initGoogle() {
+        googleLoginHelper = GoogleSignInHelper(this)
         binding.btnGoogleLogin.setOnClickListener {
             googleLoginHelper.requestGoogleLogin(
                 onSuccess = { result ->
@@ -106,15 +112,16 @@ class MainActivity : AppCompatActivity() {
                 onFailure = { errorMessage -> showSnackBar(errorMessage) },
             )
         }
-        binding.btnNaverLogin.setOAuthLogin(oauthLoginCallback = oauthLoginCallback)
     }
 
-    private fun initInsets() {
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+    private fun initNaver() {
+        NaverIdLoginSDK.initialize(
+            this,
+            BuildConfig.NAVER_CLIENT_ID,
+            BuildConfig.NAVER_CLIENT_SECRET,
+            BuildConfig.NAVER_CLIENT_NAME,
+        )
+        binding.btnNaverLogin.setOAuthLogin(oauthLoginCallback)
     }
 
     /**
