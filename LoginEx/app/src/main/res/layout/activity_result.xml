@@ -119,82 +119,12 @@
             tools:text="동의항목: profile_image, profile_nickname" />
 
         <TextView
-            android:id="@+id/tv_naver_access_token"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:paddingHorizontal="12dp"
-            android:text="@{@string/result_naver_refresh(vm.naverResult.accessToken)}"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_login_type"
-            app:visibleGone="@{vm.loginType == loginType.NAVER}"
-            tools:text="accessToken: sadasdaa12312kj3b12j3h12kj3h12kj" />
-
-        <TextView
-            android:id="@+id/tv_naver_refresh_token"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:paddingHorizontal="12dp"
-            android:text="@{@string/result_naver_refresh(vm.naverResult.refreshToken)}"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_naver_access_token"
-            app:visibleGone="@{vm.loginType == loginType.NAVER}"
-            tools:text="refreshToken: dsaldjh238edwqoudhihkwqjdhqwkj" />
-
-        <TextView
-            android:id="@+id/tv_naver_expires"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:paddingHorizontal="12dp"
-            android:textSize="20sp"
-            app:expiresDateText="@{vm.naverResult.expires}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_naver_refresh_token"
-            app:visibleGone="@{vm.loginType == loginType.NAVER}"
-            tools:text="Expires: 2025-09-01" />
-
-        <TextView
-            android:id="@+id/tv_type"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:paddingHorizontal="12dp"
-            android:text="@{@string/result_naver_type(vm.naverResult.type)}"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_naver_expires"
-            app:visibleGone="@{vm.loginType == loginType.NAVER}"
-            tools:text="Type: bearer" />
-
-        <TextView
-            android:id="@+id/tv_state"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:paddingHorizontal="12dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_type"
-            app:stateText="@{vm.naverResult.state}"
-            app:visibleGone="@{vm.loginType == loginType.NAVER}"
-            tools:text="State: OK" />
-
-        <TextView
             android:id="@+id/tv_google_id_token"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
             android:ellipsize="end"
-            android:maxLines="10"
+            android:maxLines="6"
             android:paddingHorizontal="12dp"
             android:text="@{@string/result_google_id_token(vm.googleResult.idToken)}"
             android:textSize="20sp"
@@ -231,6 +161,76 @@
             app:layout_constraintTop_toBottomOf="@id/tv_google_id"
             app:visibleGone="@{vm.loginType == loginType.GOOGLE}"
             tools:text="Name: 홍길동" />
+
+        <TextView
+            android:id="@+id/tv_naver_access_token"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_naver_access_token(vm.naverResult.accessToken)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_type"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
+            tools:text="accessToken: sadasdaa12312kj3b12j3h12kj3h12kj" />
+
+        <TextView
+            android:id="@+id/tv_naver_refresh_token"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_naver_refresh_token(vm.naverResult.refreshToken)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_naver_access_token"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
+            tools:text="refreshToken: dsaldjh238edwqoudhihkwqjdhqwkj" />
+
+        <TextView
+            android:id="@+id/tv_naver_expires"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="12dp"
+            android:textSize="20sp"
+            app:expiresDateText="@{vm.naverResult.expires}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_naver_refresh_token"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
+            tools:text="Expires: 2025-09-01" />
+
+        <TextView
+            android:id="@+id/tv_naver_token_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="12dp"
+            android:text="@{@string/result_naver_token_type(vm.naverResult.type)}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_naver_expires"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
+            tools:text="Type: bearer" />
+
+        <TextView
+            android:id="@+id/tv_naver_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="12dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_naver_token_type"
+            app:stateText="@{vm.naverResult.state}"
+            app:visibleGone="@{vm.loginType == loginType.NAVER}"
+            tools:text="State: OK" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

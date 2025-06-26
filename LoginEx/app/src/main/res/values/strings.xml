@@ -16,10 +16,10 @@
     <string name="result_kakao_id_token">Id Token: %s</string>
     <string name="result_kakao_agrees">동의항목: %s</string>
 
-    <string name="result_naver_access">AccessToken: %s</string>
-    <string name="result_naver_refresh">RefreshToken: %s</string>
-    <string name="result_naver_expires">Expires: %s</string>
-    <string name="result_naver_type">Type: %s</string>
+    <string name="result_naver_access_token">AccessToken: %s</string>
+    <string name="result_naver_refresh_token">RefreshToken: %s</string>
+    <string name="result_naver_token_expires">Expires: %s</string>
+    <string name="result_naver_token_type">Type: %s</string>
     <string name="result_naver_state">State: %s</string>
 
     <string name="result_google_id_token">IdToken: %s</string>

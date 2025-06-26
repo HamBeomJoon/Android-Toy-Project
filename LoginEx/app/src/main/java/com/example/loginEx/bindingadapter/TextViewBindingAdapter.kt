@@ -17,6 +17,11 @@ fun setKakaoAccessExpiresText(
     time: Date?,
 ) {
     val context = view.context
+    if (time == null) {
+        view.text = ""
+        return
+    }
+
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     view.text =
         context.getString(R.string.result_kakao_access_token_expires, formatter.format(time))
@@ -28,6 +33,11 @@ fun setKakaoRefreshExpiresText(
     time: Date?,
 ) {
     val context = view.context
+    if (time == null) {
+        view.text = ""
+        return
+    }
+
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     view.text =
         context.getString(R.string.result_kakao_refresh_token_expires, formatter.format(time))
@@ -68,7 +78,7 @@ fun setExpiresDateText(
             .atZone(ZoneId.systemDefault())
             .toLocalDate()
 
-    view.text = context.getString(R.string.result_naver_expires, date)
+    view.text = context.getString(R.string.result_naver_token_expires, date)
 }
 
 @BindingAdapter("stateText")
