@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">app</string>
+    <string name="app_name">Github Search</string>
 
     <string name="main_toolbar_name">깃허브 유저 검색</string>
 
