@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SocialLogin</string>
+    <string name="app_name">Social Login</string>
 
     <string name="main_title">Social Login Example</string>
     <string name="main_kakao_login_text">카카오 로그인</string>

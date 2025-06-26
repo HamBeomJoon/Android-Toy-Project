@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "loginEx"
+rootProject.name = "social-login-example"
 include(":app")
