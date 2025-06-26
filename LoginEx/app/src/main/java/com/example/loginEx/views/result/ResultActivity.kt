@@ -14,6 +14,7 @@ import com.example.loginEx.R
 import com.example.loginEx.databinding.ActivityResultBinding
 import com.example.loginEx.getParcelableExtraCompat
 import com.example.loginEx.model.GoogleLoginResult
+import com.example.loginEx.model.KakaoLoginResult
 import com.example.loginEx.model.LoginType
 import com.example.loginEx.model.NaverLoginResult
 
@@ -61,17 +62,20 @@ class ResultActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_LOGIN_TYPE = "login_type"
+        const val EXTRA_KAKAO_LOGIN_RESULT = "kakao_login_result"
         const val EXTRA_NAVER_LOGIN_RESULT = "naver_login_result"
         const val EXTRA_GOOGLE_LOGIN_RESULT = "google_login_result"
 
         fun newIntent(
             context: Context,
             loginType: LoginType,
+            kakaoResult: KakaoLoginResult? = null,
             naverResult: NaverLoginResult? = null,
             googleResult: GoogleLoginResult? = null,
         ): Intent =
             Intent(context, ResultActivity::class.java).apply {
                 putExtra(EXTRA_LOGIN_TYPE, loginType as Parcelable)
+                kakaoResult?.let { putExtra(EXTRA_NAVER_LOGIN_RESULT, it) }
                 naverResult?.let { putExtra(EXTRA_NAVER_LOGIN_RESULT, it) }
                 googleResult?.let { putExtra(EXTRA_GOOGLE_LOGIN_RESULT, it) }
             }
