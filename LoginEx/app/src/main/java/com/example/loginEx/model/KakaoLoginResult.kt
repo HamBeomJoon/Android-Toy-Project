@@ -1,6 +1,5 @@
 package com.example.loginEx.model
 
-import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.util.Date
 
@@ -12,4 +11,4 @@ data class KakaoLoginResult(
     val refreshTokenExpiresAt: Date,
     val idToken: String? = null,
     val scopes: List<String>? = null,
-) : Parcelable
+) : LoginResult(LoginType.KAKAO)

@@ -12,7 +12,6 @@ import com.example.loginEx.BuildConfig
 import com.example.loginEx.GoogleSignInHelper
 import com.example.loginEx.databinding.ActivityMainBinding
 import com.example.loginEx.model.KakaoLoginResult
-import com.example.loginEx.model.LoginType
 import com.example.loginEx.model.NaverLoginResult
 import com.example.loginEx.views.result.ResultActivity
 import com.google.android.material.snackbar.Snackbar
@@ -56,8 +55,7 @@ class MainActivity : AppCompatActivity() {
                     val intent =
                         ResultActivity.newIntent(
                             context = this@MainActivity,
-                            loginType = LoginType.KAKAO,
-                            kakaoResult =
+                            loginResult =
                                 KakaoLoginResult(
                                     accessToken = token.accessToken,
                                     accessTokenExpiresAt = token.accessTokenExpiresAt,
@@ -101,8 +99,7 @@ class MainActivity : AppCompatActivity() {
                     val intent =
                         ResultActivity.newIntent(
                             context = this@MainActivity,
-                            loginType = LoginType.GOOGLE,
-                            googleResult = result,
+                            loginResult = result,
                         )
                     startActivity(intent)
                 },
@@ -133,15 +130,14 @@ class MainActivity : AppCompatActivity() {
                         accessToken = NaverIdLoginSDK.getAccessToken(),
                         refreshToken = NaverIdLoginSDK.getRefreshToken(),
                         expires = NaverIdLoginSDK.getExpiresAt(),
-                        type = NaverIdLoginSDK.getTokenType(),
+                        tokenType = NaverIdLoginSDK.getTokenType(),
                         state = NaverIdLoginSDK.getState(),
                     )
 
                 val intent =
                     ResultActivity.newIntent(
                         context = this@MainActivity,
-                        loginType = LoginType.NAVER,
-                        naverResult = naverLoginResult,
+                        loginResult = naverLoginResult,
                     )
                 startActivity(intent)
             }

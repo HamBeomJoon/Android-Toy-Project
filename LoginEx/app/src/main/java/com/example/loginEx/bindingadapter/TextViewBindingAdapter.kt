@@ -14,7 +14,7 @@ import java.util.Locale
 @BindingAdapter("kakaoAccessExpiresText")
 fun setKakaoAccessExpiresText(
     view: TextView,
-    time: Date,
+    time: Date?,
 ) {
     val context = view.context
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -25,7 +25,7 @@ fun setKakaoAccessExpiresText(
 @BindingAdapter("kakaoRefreshExpiresText")
 fun setKakaoRefreshExpiresText(
     view: TextView,
-    time: Date,
+    time: Date?,
 ) {
     val context = view.context
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())

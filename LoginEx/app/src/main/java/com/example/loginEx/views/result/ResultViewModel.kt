@@ -21,19 +21,18 @@ class ResultViewModel : ViewModel() {
     private val _googleResult = MutableLiveData<GoogleLoginResult>()
     val googleResult: LiveData<GoogleLoginResult> = _googleResult
 
-    fun setLoginType(type: LoginType) {
-        _loginType.value = type
-    }
-
     fun setKakaoResult(result: KakaoLoginResult) {
         _kakaoResult.value = result
+        _loginType.value = result.type
     }
 
     fun setNaverResult(result: NaverLoginResult) {
         _naverResult.value = result
+        _loginType.value = result.type
     }
 
     fun setGoogleResult(result: GoogleLoginResult) {
         _googleResult.value = result
+        _loginType.value = result.type
     }
 }

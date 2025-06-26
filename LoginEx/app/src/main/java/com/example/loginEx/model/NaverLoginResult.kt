@@ -1,6 +1,5 @@
 package com.example.loginEx.model
 
-import android.os.Parcelable
 import com.navercorp.nid.oauth.NidOAuthLoginState
 import kotlinx.parcelize.Parcelize
 
@@ -9,6 +8,6 @@ data class NaverLoginResult(
     val accessToken: String?,
     val refreshToken: String?,
     val expires: Long,
-    val type: String?,
+    val tokenType: String?,
     val state: NidOAuthLoginState,
-) : Parcelable
+) : LoginResult(LoginType.NAVER)
