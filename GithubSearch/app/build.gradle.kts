@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     alias(libs.plugins.serialization)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -91,4 +92,8 @@ dependencies {
     // Room
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
+
+    // firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
 }
