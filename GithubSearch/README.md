@@ -28,7 +28,7 @@
 
  상세 페이지                                                                                                               | 프로필 링크 연결                                                                                                            | 레포지토리 링크 연결                                                                                                          
 ----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------
- <img src="https://github.com/user-attachments/assets/4f3555cc-06a4-40b9-aecb-7dba1191ccf9" width="260" height="600"> | <img src="https://github.com/user-attachments/assets/4cf40e49-af41-4447-8bb3-8bdc15ba62bc" width="260" height="600"> | <img src="https://github.com/user-attachments/assets/8bda38b7-06f7-4138-b784-ec0e5c0d55c7" width="260" height="600"> 
+ <img src="https://github.com/user-attachments/assets/a3e9ca11-a807-41b7-830d-a302c524be85" width="260" height="600"> | <img src="https://github.com/user-attachments/assets/4cf40e49-af41-4447-8bb3-8bdc15ba62bc" width="260" height="600"> | <img src="https://github.com/user-attachments/assets/8bda38b7-06f7-4138-b784-ec0e5c0d55c7" width="260" height="600"> 
 
 - 유저 프로필 사진, github id, location 조회
     - 링크 아이콘 클릭 시 깃허브 링크로 이동
@@ -38,5 +38,6 @@
     - most language별로 마커 색 표시
     - language = null일 때, visible gone 처리
     - 레포지토리 클릭 시 해당 레포지토리 깃허브 링크로 이동
+    - fadingEdgeLength 속성을 통해 위 아래 리스트 페이드 효과 적용
 
 ----
