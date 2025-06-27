@@ -14,7 +14,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.app"
+        applicationId = "com.example.githubSearch"
         minSdk = 32
         targetSdk = 35
         versionCode = 1
