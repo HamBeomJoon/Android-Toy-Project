@@ -71,15 +71,6 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
-    // okhttp
-    implementation(libs.okhttp)
-    implementation(libs.logging.interceptor)
-
-    // retrofit
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit2.kotlinx.serialization.converter)
-
     // viewModel
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
@@ -88,7 +79,6 @@ dependencies {
     // glide
     implementation(libs.glide)
 
-    // room
-    implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    // timber
+    implementation(libs.timber)
 }
