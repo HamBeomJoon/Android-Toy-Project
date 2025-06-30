@@ -1,5 +1,6 @@
 package com.example.data.dto.photos
 
+
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -30,5 +31,5 @@ data class User(
     @SerialName("twitter_username")
     val twitterUsername: String,
     @SerialName("username")
-    val username: String,
+    val username: String
 )

@@ -1,4 +1,4 @@
-package com.example.data
+package com.example.data.service
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement

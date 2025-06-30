@@ -1,8 +1,9 @@
 package com.example.domain
 
-data class PhotoDetail(
+data class DetailPhoto(
     val id: String,
     val thumb: String,
+    val title: String,
     val description: String,
-    var isBookmark: Boolean,
+    val tags: List<String>,
 )

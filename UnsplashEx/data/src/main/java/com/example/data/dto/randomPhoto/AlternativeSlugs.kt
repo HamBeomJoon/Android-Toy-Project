@@ -14,7 +14,7 @@ data class AlternativeSlugs(
     @SerialName("fr")
     val fr: String,
     @SerialName("it")
-    val `it`: String,
+    val it: String,
     @SerialName("ja")
     val ja: String,
     @SerialName("ko")

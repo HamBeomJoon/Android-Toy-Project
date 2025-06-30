@@ -1,11 +1,15 @@
 package com.example.data.dto.detailPhoto
 
+import com.example.data.dto.randomPhoto.AlternativeSlugs
 import com.example.data.dto.randomPhoto.CurrentUserCollectionsResponseItem
+import com.example.domain.DetailPhoto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class DetailPhotoResponse(
+    @SerialName("alternative_slugs")
+    val alternativeSlugs: AlternativeSlugs,
     @SerialName("blur_hash")
     val blurHash: String,
     @SerialName("color")
@@ -34,6 +38,8 @@ data class DetailPhotoResponse(
     val location: Location,
     @SerialName("public_domain")
     val publicDomain: Boolean,
+    @SerialName("slug")
+    val slug: String,
     @SerialName("tags")
     val tags: List<Tag>,
     @SerialName("updated_at")
@@ -45,3 +51,12 @@ data class DetailPhotoResponse(
     @SerialName("width")
     val width: Int,
 )
+
+fun DetailPhotoResponse.toDomain(): DetailPhoto =
+    DetailPhoto(
+        id = this.id,
+        thumb = this.urls.thumb,
+        title = this.slug,
+        description = this.description,
+        tags = this.tags.map { it.title },
+    )

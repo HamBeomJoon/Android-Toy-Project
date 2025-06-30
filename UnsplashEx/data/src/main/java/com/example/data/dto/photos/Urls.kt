@@ -1,5 +1,6 @@
 package com.example.data.dto.photos
 
+
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -14,5 +15,5 @@ data class Urls(
     @SerialName("small")
     val small: String,
     @SerialName("thumb")
-    val thumb: String,
+    val thumb: String
 )

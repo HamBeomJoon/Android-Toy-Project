@@ -1,4 +1,4 @@
-package com.example.data
+package com.example.data.service
 
 import com.example.data.dto.detailPhoto.DetailPhotoResponse
 import com.example.data.dto.photos.PhotosResponseItem

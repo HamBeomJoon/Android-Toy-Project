@@ -1,6 +1,7 @@
 package com.example.data.dto.photos
 
 import com.example.data.dto.randomPhoto.CurrentUserCollectionsResponseItem
+import com.example.domain.RandomPhoto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -35,3 +36,10 @@ data class PhotosResponseItem(
     @SerialName("width")
     val width: Int,
 )
+
+fun PhotosResponseItem.toDomain(): RandomPhoto =
+    RandomPhoto(
+        id = this.id,
+        thumb = this.urls.thumb,
+        description = this.description,
+    )

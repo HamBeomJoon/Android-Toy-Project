@@ -1,10 +1,10 @@
 package com.example.data.datasource
 
-import com.example.data.PhotoService
 import com.example.data.dto.detailPhoto.DetailPhotoResponse
 import com.example.data.dto.photos.PhotosResponseItem
 import com.example.data.dto.randomPhoto.RandomPhotoResponse
 import com.example.data.handleApiCall
+import com.example.data.service.PhotoService
 import javax.inject.Inject
 
 class PhotoRemoteDatasourceImpl
