@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -14,6 +17,11 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        val properties = Properties()
+        properties.load(FileInputStream(rootProject.file("local.properties")))
+        val accessKey = properties["UNSPLASH_ACCESS_KEY"]
+        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "\"$accessKey\"")
     }
 
     buildTypes {
