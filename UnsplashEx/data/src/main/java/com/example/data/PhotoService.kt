@@ -22,6 +22,6 @@ interface PhotoService {
 
     @GET("photos/{id}")
     suspend fun getPhotoDetail(
-        @Path("id") id: String,
+        @Path("id") photoId: String,
     ): Response<DetailPhotoResponse>
 }
