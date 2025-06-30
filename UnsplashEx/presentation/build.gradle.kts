@@ -50,4 +50,7 @@ dependencies {
     // hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    // cardView
+    implementation(libs.androidx.cardview)
 }

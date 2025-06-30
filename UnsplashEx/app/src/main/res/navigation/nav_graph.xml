@@ -11,6 +11,6 @@
 
     <fragment
         android:id="@+id/randomPhotoFragment"
-        android:name="com.example.presentation.HomeFragment"
+        android:name="com.example.presentation.RandomPhotoFragment"
         android:label="Random" />
 </navigation>
