@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#F5F5F5"
+            android:padding="8dp"
+            app:layout_constraintBottom_toTopOf="@id/btnOpenDialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textSize="12sp" />
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnOpenDialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="다이얼로그 열기 (onPause만)"
+            app:layout_constraintBottom_toTopOf="@id/btnOpenActivity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnOpenActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="새 액티비티 열기 (onStop)"
+            app:layout_constraintBottom_toTopOf="@id/btnRotate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnRotate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="화면 회전 (재생성)"
+            app:layout_constraintBottom_toTopOf="@id/btnClear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="로그 초기화"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

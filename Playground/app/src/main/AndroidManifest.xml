@@ -11,13 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Playground">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.LifecycleTestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".presentation.SecondActivity" />
     </application>
 
 </manifest>
